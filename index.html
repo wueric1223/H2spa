@@ -1,12 +1,51 @@
-```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>H2 SPA 逢甲商圈男士按摩推薦</title>
-<meta name="description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供指壓按摩、油壓按摩、機能保養、外出方案。台中按摩推薦、逢甲按摩、台中男士按摩。">
+<title>H2 SPA｜台中按摩｜逢甲按摩｜台中男士按摩｜同志友善按摩推薦</title>
+
+<meta name="description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供指壓按摩、油壓按摩、機能保養、外出方案。台中按摩推薦、逢甲按摩、台中男士按摩、同志友善按摩、台中舒壓按摩。">
+
+<meta name="keywords" content="台中按摩,台中按摩推薦,逢甲按摩,西屯按摩,台中男士按摩,同志友善按摩,台中舒壓按摩,台中SPA,台中油壓按摩,台中指壓按摩,逢甲SPA,台中按摩工作室">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="H2 SPA">
+<meta name="theme-color" content="#06070b">
+
+<meta property="og:title" content="H2 SPA｜台中按摩｜逢甲按摩｜台中男士按摩">
+<meta property="og:description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供指壓按摩、油壓按摩、機能保養、外出方案。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="cover.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "H2 SPA",
+  "image": "cover.jpg",
+  "description": "台中市西屯區逢甲商圈按摩工作室，提供指壓按摩、油壓按摩、機能保養、外出方案。",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "福上巷220號",
+    "addressLocality": "西屯區",
+    "addressRegion": "台中市",
+    "addressCountry": "TW"
+  },
+  "areaServed": "台中市",
+  "keywords": [
+    "台中按摩",
+    "台中按摩推薦",
+    "逢甲按摩",
+    "西屯按摩",
+    "台中男士按摩",
+    "同志友善按摩",
+    "台中舒壓按摩",
+    "台中SPA"
+  ]
+}
+</script>
 
 <style>
 :root{
@@ -268,10 +307,41 @@ body::before{
     inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
+/* 師傅篩選 */
+.filter-bar{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 28px;
+}
+
+.filter-btn{
+  border:none;
+  cursor:pointer;
+  color:#fff;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(58,168,255,0.18);
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:14px;
+  transition:.25s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+  background:linear-gradient(135deg, var(--blue), var(--purple));
+  box-shadow:0 0 18px rgba(0,217,255,0.16);
+}
+
 /* 師傅 */
 .therapist{
   margin-bottom:34px;
   padding:18px;
+}
+
+.therapist.hidden{
+  display:none;
 }
 
 .photo-row{
@@ -288,6 +358,7 @@ body::before{
   display:block;
   transition:.28s ease;
   border:1px solid rgba(58,168,255,0.18);
+  cursor:pointer;
 }
 
 .photo-row img:hover{
@@ -496,6 +567,48 @@ footer{
   box-shadow:0 0 22px rgba(0,217,255,0.25);
 }
 
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.88);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  padding:20px;
+}
+
+.lightbox.show{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:92vw;
+  max-height:88vh;
+  border-radius:16px;
+  box-shadow:0 0 30px rgba(0,217,255,0.18);
+}
+
+.lightbox-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  color:#fff;
+  font-size:32px;
+  cursor:pointer;
+  line-height:1;
+}
+
+/* SEO 文字 */
+.seo-text{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
 /* 手機 */
 @media (max-width:900px){
   .plan-list,
@@ -557,7 +670,7 @@ footer{
     <h1>H2 SPA</h1>
     <div class="hero-sub">台中逢甲 男士按摩工作室</div>
     <div class="hero-desc">
-      指壓按摩、油壓按摩、機能保養。汽機車停車方便。誠徵按摩師高抽成。
+      指壓按摩、油壓按摩、機能保養。汽機車停車方便。誠徵按摩師高抽成。台中按摩推薦、逢甲按摩、台中男士按摩、同志友善按摩。
     </div>
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://line.me">LINE 預約</a>
@@ -568,63 +681,228 @@ footer{
 
 <section class="section" id="therapist">
   <h2 class="section-title">師傅</h2>
-  <p class="section-subtitle">---</p>
+  <p class="section-subtitle">可依類型快速篩選，每位師傅 4 張照片。</p>
 
-  <div class="card therapist">
-    <div class="photo-row">
-      <img src="11.jpg" alt="H2 SPA 師傅 Ting 照片1">
-      <img src="12.jpg" alt="H2 SPA 師傅 Ting 照片2">
-      <img src="13.jpg" alt="H2 SPA 師傅 Ting 照片3">
-      <img src="14.jpg" alt="H2 SPA 師傅 Ting 照片4">
-    </div>
-    <div class="info">
-      <h3>Ting</h3>
-      <p>175 / 67 / 22<br>高顏值・溫柔型・自然互動感</p>
-    </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="new">新人</button>
+    <button class="filter-btn" data-filter="popular">熱門</button>
+    <button class="filter-btn" data-filter="gentle">溫柔型</button>
+    <button class="filter-btn" data-filter="sport">運動型</button>
   </div>
 
-  <div class="card therapist">
+  <div class="card therapist" data-tags="popular gentle">
     <div class="photo-row">
-      <img src="21.jpg" alt="H2 SPA 師傅 Leo 照片1">
-      <img src="22.jpg" alt="H2 SPA 師傅 Leo 照片2">
-      <img src="23.jpg" alt="H2 SPA 師傅 Leo 照片3">
-      <img src="24.jpg" alt="H2 SPA 師傅 Leo 照片4">
+      <img src="11.jpg" alt="H2 SPA 師傅1 照片1" class="zoomable">
+      <img src="12.jpg" alt="H2 SPA 師傅1 照片2" class="zoomable">
+      <img src="13.jpg" alt="H2 SPA 師傅1 照片3" class="zoomable">
+      <img src="14.jpg" alt="H2 SPA 師傅1 照片4" class="zoomable">
     </div>
     <div class="info">
-      <h3>Leo</h3>
-      <p>178 / 72<br>運動型・深層按摩・穩定手感</p>
+      <h3>師傅 1</h3>
+      <p>高顏值・溫柔型・自然互動感</p>
     </div>
   </div>
-  <div class="card therapist">
+
+  <div class="card therapist" data-tags="popular sport">
     <div class="photo-row">
-      <img src="31.jpg" alt="H2 SPA 師傅 Ting 照片1">
-      <img src="32.jpg" alt="H2 SPA 師傅 Ting 照片2">
-      <img src="33.jpg" alt="H2 SPA 師傅 Ting 照片3">
-      <img src="34.jpg" alt="H2 SPA 師傅 Ting 照片4">
+      <img src="21.jpg" alt="H2 SPA 師傅2 照片1" class="zoomable">
+      <img src="22.jpg" alt="H2 SPA 師傅2 照片2" class="zoomable">
+      <img src="23.jpg" alt="H2 SPA 師傅2 照片3" class="zoomable">
+      <img src="24.jpg" alt="H2 SPA 師傅2 照片4" class="zoomable">
     </div>
     <div class="info">
-      <h3>Ting</h3>
-      <p>175 / 67 / 22<br>高顏值・溫柔型・自然互動感</p>
+      <h3>師傅 2</h3>
+      <p>運動型・深層按摩・穩定手感</p>
     </div>
   </div>
-  
-  <div class="card therapist">
+
+  <div class="card therapist" data-tags="gentle">
     <div class="photo-row">
-      <img src="41.jpg" alt="H2 SPA 師傅 Ting 照片1">
-      <img src="42.jpg" alt="H2 SPA 師傅 Ting 照片2">
-      <img src="43.jpg" alt="H2 SPA 師傅 Ting 照片3">
-      <img src="44.jpg" alt="H2 SPA 師傅 Ting 照片4">
+      <img src="31.jpg" alt="H2 SPA 師傅3 照片1" class="zoomable">
+      <img src="32.jpg" alt="H2 SPA 師傅3 照片2" class="zoomable">
+      <img src="33.jpg" alt="H2 SPA 師傅3 照片3" class="zoomable">
+      <img src="34.jpg" alt="H2 SPA 師傅3 照片4" class="zoomable">
     </div>
     <div class="info">
-      <h3>Ting</h3>
-      <p>175 / 67 / 22<br>高顏值・溫柔型・自然互動感</p>
+      <h3>師傅 3</h3>
+      <p>親和自然・放鬆系・溫柔服務</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="sport">
+    <div class="photo-row">
+      <img src="41.jpg" alt="H2 SPA 師傅4 照片1" class="zoomable">
+      <img src="42.jpg" alt="H2 SPA 師傅4 照片2" class="zoomable">
+      <img src="43.jpg" alt="H2 SPA 師傅4 照片3" class="zoomable">
+      <img src="44.jpg" alt="H2 SPA 師傅4 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 4</h3>
+      <p>運動系・力量型・深層手感</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="new gentle">
+    <div class="photo-row">
+      <img src="51.jpg" alt="H2 SPA 師傅5 照片1" class="zoomable">
+      <img src="52.jpg" alt="H2 SPA 師傅5 照片2" class="zoomable">
+      <img src="53.jpg" alt="H2 SPA 師傅5 照片3" class="zoomable">
+      <img src="54.jpg" alt="H2 SPA 師傅5 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 5</h3>
+      <p>新人上架・溫柔型・互動自然</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="new popular">
+    <div class="photo-row">
+      <img src="61.jpg" alt="H2 SPA 師傅6 照片1" class="zoomable">
+      <img src="62.jpg" alt="H2 SPA 師傅6 照片2" class="zoomable">
+      <img src="63.jpg" alt="H2 SPA 師傅6 照片3" class="zoomable">
+      <img src="64.jpg" alt="H2 SPA 師傅6 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 6</h3>
+      <p>新人上架・人氣型・質感互動</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="sport">
+    <div class="photo-row">
+      <img src="71.jpg" alt="H2 SPA 師傅7 照片1" class="zoomable">
+      <img src="72.jpg" alt="H2 SPA 師傅7 照片2" class="zoomable">
+      <img src="73.jpg" alt="H2 SPA 師傅7 照片3" class="zoomable">
+      <img src="74.jpg" alt="H2 SPA 師傅7 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 7</h3>
+      <p>運動系・穩定型・深層按摩</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="gentle">
+    <div class="photo-row">
+      <img src="81.jpg" alt="H2 SPA 師傅8 照片1" class="zoomable">
+      <img src="82.jpg" alt="H2 SPA 師傅8 照片2" class="zoomable">
+      <img src="83.jpg" alt="H2 SPA 師傅8 照片3" class="zoomable">
+      <img src="84.jpg" alt="H2 SPA 師傅8 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 8</h3>
+      <p>溫柔型・輕鬆感・細膩服務</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="popular sport">
+    <div class="photo-row">
+      <img src="91.jpg" alt="H2 SPA 師傅9 照片1" class="zoomable">
+      <img src="92.jpg" alt="H2 SPA 師傅9 照片2" class="zoomable">
+      <img src="93.jpg" alt="H2 SPA 師傅9 照片3" class="zoomable">
+      <img src="94.jpg" alt="H2 SPA 師傅9 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 9</h3>
+      <p>熱門推薦・運動型・穩定手感</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="new gentle">
+    <div class="photo-row">
+      <img src="101.jpg" alt="H2 SPA 師傅10 照片1" class="zoomable">
+      <img src="102.jpg" alt="H2 SPA 師傅10 照片2" class="zoomable">
+      <img src="103.jpg" alt="H2 SPA 師傅10 照片3" class="zoomable">
+      <img src="104.jpg" alt="H2 SPA 師傅10 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 10</h3>
+      <p>新人上架・溫柔系・舒壓互動</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="gentle">
+    <div class="photo-row">
+      <img src="111.jpg" alt="H2 SPA 師傅11 照片1" class="zoomable">
+      <img src="112.jpg" alt="H2 SPA 師傅11 照片2" class="zoomable">
+      <img src="113.jpg" alt="H2 SPA 師傅11 照片3" class="zoomable">
+      <img src="114.jpg" alt="H2 SPA 師傅11 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 11</h3>
+      <p>自然系・溫柔型・輕鬆舒壓</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="sport popular">
+    <div class="photo-row">
+      <img src="121.jpg" alt="H2 SPA 師傅12 照片1" class="zoomable">
+      <img src="122.jpg" alt="H2 SPA 師傅12 照片2" class="zoomable">
+      <img src="123.jpg" alt="H2 SPA 師傅12 照片3" class="zoomable">
+      <img src="124.jpg" alt="H2 SPA 師傅12 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 12</h3>
+      <p>熱門型・運動系・深層放鬆</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="new">
+    <div class="photo-row">
+      <img src="131.jpg" alt="H2 SPA 師傅13 照片1" class="zoomable">
+      <img src="132.jpg" alt="H2 SPA 師傅13 照片2" class="zoomable">
+      <img src="133.jpg" alt="H2 SPA 師傅13 照片3" class="zoomable">
+      <img src="134.jpg" alt="H2 SPA 師傅13 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 13</h3>
+      <p>新人上架・質感型・舒適互動</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="sport">
+    <div class="photo-row">
+      <img src="141.jpg" alt="H2 SPA 師傅14 照片1" class="zoomable">
+      <img src="142.jpg" alt="H2 SPA 師傅14 照片2" class="zoomable">
+      <img src="143.jpg" alt="H2 SPA 師傅14 照片3" class="zoomable">
+      <img src="144.jpg" alt="H2 SPA 師傅14 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 14</h3>
+      <p>力量型・運動風・穩定服務</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="popular gentle">
+    <div class="photo-row">
+      <img src="151.jpg" alt="H2 SPA 師傅15 照片1" class="zoomable">
+      <img src="152.jpg" alt="H2 SPA 師傅15 照片2" class="zoomable">
+      <img src="153.jpg" alt="H2 SPA 師傅15 照片3" class="zoomable">
+      <img src="154.jpg" alt="H2 SPA 師傅15 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 15</h3>
+      <p>人氣型・溫柔感・自然互動</p>
+    </div>
+  </div>
+
+  <div class="card therapist" data-tags="new sport">
+    <div class="photo-row">
+      <img src="161.jpg" alt="H2 SPA 師傅16 照片1" class="zoomable">
+      <img src="162.jpg" alt="H2 SPA 師傅16 照片2" class="zoomable">
+      <img src="163.jpg" alt="H2 SPA 師傅16 照片3" class="zoomable">
+      <img src="164.jpg" alt="H2 SPA 師傅16 照片4" class="zoomable">
+    </div>
+    <div class="info">
+      <h3>師傅 16</h3>
+      <p>新人上架・運動型・深層手感</p>
     </div>
   </div>
 </section>
 
 <section class="section" id="plans">
   <h2 class="section-title">方案內容</h2>
-  <p class="section-subtitle">---</p>
+  <p class="section-subtitle">透明清楚的收費與內容。</p>
 
   <div class="plan-list">
     <div class="card plan">
@@ -727,11 +1005,9 @@ footer{
   <p class="section-subtitle">歡迎對按摩工作有興趣、重視服務品質與互動感的人加入。</p>
 
   <div class="card job-box">
-    <p>
-      <div>H2 SPA 位於台中市西屯區逢甲商圈，高抽成，環境單純，採預約制安排。<div>
-      <div>希望找到重視禮貌、形象、時間配合與服務品質的夥伴。<div>
-      <div>無經驗可免費提供教學。<div>
-    </p>
+    <p>H2 SPA 位於台中市西屯區逢甲商圈，高抽成，環境單純，採預約制安排。</p>
+    <p>希望找到重視禮貌、形象、時間配合與服務品質的夥伴。</p>
+    <p>無經驗可免費提供教學。</p>
 
     <div class="job-points">
       <div>工作地點：台中市西屯區逢甲商圈</div>
@@ -746,13 +1022,69 @@ footer{
   <div class="card notice">本店不提供性服務</div>
 </section>
 
+<div class="seo-text">
+台中按摩 台中按摩推薦 逢甲按摩 西屯按摩 台中男士按摩 同志友善按摩 台中舒壓按摩
+台中SPA 台中油壓按摩 台中指壓按摩 逢甲SPA 台中按摩工作室
+</div>
+
 <footer>
   H2 SPA｜台中西屯區按摩｜逢甲按摩推薦｜台中男士按摩｜台中按摩推薦
 </footer>
 
 <a class="line-float" href="https://line.me">LINE 預約</a>
 
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <img id="lightboxImg" src="" alt="放大照片">
+</div>
+
+<script>
+/* 師傅篩選 */
+const filterButtons = document.querySelectorAll('.filter-btn');
+const therapistCards = document.querySelectorAll('.therapist');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const filter = button.dataset.filter;
+
+    therapistCards.forEach(card => {
+      const tags = card.dataset.tags || '';
+      if (filter === 'all' || tags.includes(filter)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+/* 點照片放大 */
+const zoomableImages = document.querySelectorAll('.zoomable');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+zoomableImages.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('show');
+  });
+});
+
+lightboxClose.addEventListener('click', () => {
+  lightbox.classList.remove('show');
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('show');
+  }
+});
+</script>
+
 </body>
 </html>
-```
-這是我剛修改過的，但我GOOGLE地址無法顯示，請幫我直接更改到台中市西屯區福上巷220號
