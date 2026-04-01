@@ -1,264 +1,731 @@
 ```html
 <!DOCTYPE html>
 <html lang="zh-TW">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>H2 SPA｜台中西區男士按摩｜高質感舒壓會所</title>
-
-<meta name="description" content="H2 SPA 台中男士按摩會所，帥氣師傅團隊，高質感舒壓體驗，完全預約制，立即LINE預約。">
+<title>H2 SPA 逢甲商圈男士按摩推薦</title>
+<meta name="description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供指壓按摩、油壓按摩、機能保養、外出方案。台中按摩推薦、逢甲按摩、台中男士按摩。">
 
 <style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#0a0a0a;
-color:white;
+:root{
+  --green:#00d26a;
+  --blue:#00d9ff;
+  --blue2:#3aa8ff;
+  --purple:#b100ff;
+  --pink:#ff2fb3;
+  --red:#ff4d6d;
+  --dark:#06070b;
+  --dark2:#0d1118;
+  --card:rgba(255,255,255,0.04);
+  --border:rgba(0,217,255,0.18);
+  --text:#f3f7fb;
+  --muted:#b9c5d6;
 }
 
-/* HERO */
+*{
+  box-sizing:border-box;
+}
 
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial, "Noto Sans TC", sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top, #1c2230 0%, #0b0f17 40%, #050608 100%);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* 背景動態光暈 */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-30%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,217,255,0.14), transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(177,0,255,0.12), transparent 24%),
+    radial-gradient(circle at 50% 75%, rgba(255,47,179,0.08), transparent 22%),
+    radial-gradient(circle at 70% 80%, rgba(0,210,106,0.06), transparent 18%);
+  animation:bgFloat 18s ease-in-out infinite alternate;
+  pointer-events:none;
+  z-index:0;
+}
+
+@keyframes bgFloat{
+  0%{transform:translate3d(-2%, -1%, 0) scale(1);}
+  50%{transform:translate3d(2%, 1%, 0) scale(1.03);}
+  100%{transform:translate3d(-1%, 2%, 0) scale(1.05);}
+}
+
+/* 導覽列 */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(6,7,11,0.78);
+  border-bottom:1px solid rgba(58,168,255,0.18);
+}
+
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.brand{
+  color:var(--green);
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:10px 16px;
+}
+
+.nav-links a{
+  color:#d9e6f7;
+  text-decoration:none;
+  font-size:14px;
+  padding:6px 10px;
+  border-radius:999px;
+  transition:.25s;
+}
+
+.nav-links a:hover{
+  color:#fff;
+  background:rgba(58,168,255,0.12);
+  box-shadow:0 0 18px rgba(0,217,255,0.12);
+}
+
+/* 主封面 */
 .hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)), url('cover.jpg');
-background-size:cover;
-background-position:center;
+  position:relative;
+  z-index:1;
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:100px 20px 70px;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(6,7,11,0.45), rgba(6,7,11,0.78)),
+    url('cover.jpg') center/cover no-repeat;
+}
+
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto;
+  width:90vw;
+  max-width:900px;
+  height:2px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,217,255,0.9) 18%,
+    rgba(177,0,255,0.8) 45%,
+    rgba(255,47,179,0.8) 60%,
+    rgba(0,210,106,0.9) 82%,
+    transparent 100%);
+  filter:blur(1px);
+  opacity:.9;
+  animation:lightSweep 8s linear infinite;
+}
+
+.hero::before{
+  top:22%;
+  transform:rotate(-8deg);
+  box-shadow:0 0 18px rgba(0,217,255,0.45), 0 0 35px rgba(177,0,255,0.22);
+}
+
+.hero::after{
+  bottom:22%;
+  transform:rotate(7deg);
+  animation-delay:2.2s;
+  box-shadow:0 0 20px rgba(255,47,179,0.28), 0 0 34px rgba(58,168,255,0.3);
+}
+
+@keyframes lightSweep{
+  0%{transform:translateX(-18%) rotate(-8deg); opacity:.35;}
+  50%{transform:translateX(10%) rotate(-6deg); opacity:1;}
+  100%{transform:translateX(22%) rotate(-8deg); opacity:.45;}
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
 }
 
 .hero h1{
-font-size:48px;
-letter-spacing:3px;
+  margin:0;
+  color:var(--green);
+  font-size:clamp(34px, 6vw, 64px);
+  letter-spacing:2px;
+  text-shadow:0 0 18px rgba(0,210,106,0.15);
 }
 
-.hero p{
-color:#ccc;
-margin-top:10px;
+.hero-sub{
+  margin:18px auto 0;
+  font-size:clamp(16px, 2.2vw, 22px);
+  color:#e9f4ff;
+}
+
+.hero-desc{
+  margin:16px auto 0;
+  max-width:760px;
+  color:var(--muted);
+  font-size:15px;
+}
+
+.hero-actions{
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
 .btn{
-margin-top:25px;
-padding:15px 40px;
-background:#00c300;
-color:white;
-border-radius:30px;
-text-decoration:none;
-font-size:18px;
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
 }
 
-/* section */
-
-section{
-padding:80px 20px;
-max-width:1100px;
-margin:auto;
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg, var(--green), var(--blue), var(--purple));
+  box-shadow:0 0 24px rgba(0,217,255,0.22);
 }
 
-h2{
-text-align:center;
-margin-bottom:50px;
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 28px rgba(0,217,255,0.34);
 }
 
-/* 師傅滑動 */
-
-.slider{
-display:flex;
-overflow-x:auto;
-gap:20px;
+.btn-secondary{
+  color:#fff;
+  border:1px solid rgba(58,168,255,0.25);
+  background:rgba(255,255,255,0.04);
 }
 
+.btn-secondary:hover{
+  background:rgba(58,168,255,0.10);
+}
+
+/* 通用區塊 */
+.section{
+  position:relative;
+  z-index:1;
+  max-width:1100px;
+  margin:0 auto;
+  padding:68px 20px;
+}
+
+.section-title{
+  margin:0 0 26px;
+  text-align:center;
+  color:var(--green);
+  font-size:clamp(24px, 4vw, 34px);
+  letter-spacing:2px;
+}
+
+.section-subtitle{
+  margin:-8px auto 30px;
+  max-width:760px;
+  text-align:center;
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* 卡片 */
 .card{
-min-width:260px;
-background:#1a1a1a;
-border-radius:12px;
-padding:15px;
-text-align:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
-.card img{
-width:100%;
-border-radius:10px;
+/* 師傅 */
+.therapist{
+  margin-bottom:34px;
+  padding:18px;
 }
 
-.price{
-color:#ffd700;
-font-size:22px;
+.photo-row{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:10px;
 }
 
-/* LINE浮動 */
-
-.line{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#00c300;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-color:white;
+.photo-row img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+  transition:.28s ease;
+  border:1px solid rgba(58,168,255,0.18);
 }
 
-/* 照片 */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.photo-row img:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:
+    0 0 16px rgba(0,217,255,0.25),
+    0 0 22px rgba(177,0,255,0.14);
 }
 
-.gallery img{
-width:100%;
-border-radius:10px;
+.info{
+  text-align:center;
+  margin-top:16px;
 }
 
+.info h3{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:24px;
+}
+
+.info p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* 方案 */
+.plan-list{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px;
+}
+
+.plan{
+  padding:22px 20px;
+}
+
+.plan h3{
+  margin:0 0 8px;
+  color:var(--green);
+  font-size:24px;
+}
+
+.plan .price{
+  display:block;
+  margin-bottom:8px;
+  color:#fff;
+  font-size:28px;
+  font-weight:700;
+}
+
+.plan .detail{
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* 工作室環境 */
+.space-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+}
+
+.space-gallery{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:10px;
+}
+
+.space-gallery img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+  border-radius:16px;
+  border:1px solid rgba(58,168,255,0.16);
+}
+
+.space-info{
+  padding:22px;
+}
+
+.space-info ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.space-info li{
+  padding:12px 0;
+  border-bottom:1px solid rgba(58,168,255,0.12);
+  color:var(--muted);
+}
+
+.space-info li:last-child{
+  border-bottom:none;
+}
+
+/* 合併資訊欄 */
+.extra-box{
+  padding:22px;
+}
+
+.extra-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:16px;
+  margin-top:8px;
+}
+
+.extra-item{
+  padding:16px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(58,168,255,0.12);
+}
+
+.extra-item h3{
+  margin:0 0 10px;
+  color:var(--green);
+  font-size:20px;
+}
+
+.extra-item p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+
+/* 地圖 */
+.map-card{
+  padding:14px;
+}
+
+.map-wrap{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(58,168,255,0.15);
+}
+
+.map-wrap iframe{
+  width:100%;
+  height:380px;
+  border:0;
+  display:block;
+}
+
+/* 徵才 */
+.job-box{
+  padding:24px;
+}
+
+.job-box p{
+  margin:0 0 12px;
+  color:var(--muted);
+}
+
+.job-points{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+
+.job-points div{
+  padding:14px 16px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(177,0,255,0.12);
+  color:#e6eef8;
+}
+
+/* 聲明 */
+.notice{
+  text-align:center;
+  color:#fff;
+  font-weight:700;
+  font-size:18px;
+  padding:20px;
+  border:1px solid rgba(255,77,109,0.22);
+  background:linear-gradient(135deg, rgba(255,77,109,0.08), rgba(177,0,255,0.05));
+}
+
+/* Footer */
 footer{
-text-align:center;
-padding:40px;
-color:#888;
-background:#000;
+  position:relative;
+  z-index:1;
+  padding:32px 20px 90px;
+  text-align:center;
+  color:#7f92a8;
+  font-size:13px;
 }
 
-</style>
+/* 浮動LINE */
+.line-float{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+  background:linear-gradient(135deg, var(--green), var(--blue));
+  color:#fff;
+  text-decoration:none;
+  border-radius:999px;
+  padding:14px 18px;
+  font-weight:700;
+  box-shadow:0 0 22px rgba(0,217,255,0.25);
+}
 
+/* 手機 */
+@media (max-width:900px){
+  .plan-list,
+  .space-grid,
+  .extra-grid,
+  .job-points{
+    grid-template-columns:1fr;
+  }
+
+  .nav-inner{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .nav-links{
+    justify-content:flex-start;
+  }
+}
+
+@media (max-width:768px){
+  .hero{
+    min-height:78vh;
+    padding-top:90px;
+  }
+
+  .photo-row{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .hero::before,
+  .hero::after{
+    width:120vw;
+  }
+
+  .map-wrap iframe{
+    height:300px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">H2 SPA</div>
+    <div class="nav-links">
+      <a href="#therapist">師傅</a>
+      <a href="#plans">方案內容</a>
+      <a href="#space">工作室環境</a>
+      <a href="#map">地圖</a>
+      <a href="#job">徵才資訊</a>
+    </div>
+  </div>
+</nav>
 
-<div class="hero">
+<header class="hero">
+  <div class="hero-content">
+    <h1>H2 SPA</h1>
+    <div class="hero-sub">台中逢甲 男士按摩工作室</div>
+    <div class="hero-desc">
+      指壓按摩、油壓按摩、機能保養。汽機車停車方便。誠徵按摩師高抽成。
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://line.me">LINE 預約</a>
+      <a class="btn btn-secondary" href="#plans">查看方案</a>
+    </div>
+  </div>
+</header>
 
-<h1>H2 SPA</h1>
+<section class="section" id="therapist">
+  <h2 class="section-title">師傅</h2>
+  <p class="section-subtitle">---</p>
 
-<p>
-台中西區高質感男士按摩會所<br>
-帥氣師傅 × 私密空間 × 專業舒壓
-</p>
+  <div class="card therapist">
+    <div class="photo-row">
+      <img src="ting1.jpg" alt="H2 SPA 師傅 Ting 照片1">
+      <img src="ting2.jpg" alt="H2 SPA 師傅 Ting 照片2">
+      <img src="ting3.jpg" alt="H2 SPA 師傅 Ting 照片3">
+      <img src="ting4.jpg" alt="H2 SPA 師傅 Ting 照片4">
+    </div>
+    <div class="info">
+      <h3>Ting</h3>
+      <p>175 / 67 / 22<br>高顏值・溫柔型・自然互動感</p>
+    </div>
+  </div>
 
-<a class="btn" href="https://line.me">
-LINE立即預約
-</a>
-
-</div>
-
-<!-- 師傅 -->
-
-<section>
-
-<h2>人氣師傅</h2>
-
-<div class="slider">
-
-<div class="card">
-<img src="ting.jpg">
-<h3>Ting</h3>
-<p>175 / 67 / 22<br>高顏值 溫柔型</p>
-</div>
-
-<div class="card">
-<img src="leo.jpg">
-<h3>Leo</h3>
-<p>178 / 72<br>運動型 深層按摩</p>
-</div>
-
-<div class="card">
-<img src="kevin.jpg">
-<h3>Kevin</h3>
-<p>180 / 75<br>健身系 力量型</p>
-</div>
-
-</div>
-
+  <div class="card therapist">
+    <div class="photo-row">
+      <img src="leo1.jpg" alt="H2 SPA 師傅 Leo 照片1">
+      <img src="leo2.jpg" alt="H2 SPA 師傅 Leo 照片2">
+      <img src="leo3.jpg" alt="H2 SPA 師傅 Leo 照片3">
+      <img src="leo4.jpg" alt="H2 SPA 師傅 Leo 照片4">
+    </div>
+    <div class="info">
+      <h3>Leo</h3>
+      <p>178 / 72<br>運動型・深層按摩・穩定手感</p>
+    </div>
+  </div>
 </section>
 
-<!-- 價格 -->
+<section class="section" id="plans">
+  <h2 class="section-title">方案內容</h2>
+  <p class="section-subtitle">---</p>
 
-<section>
+  <div class="plan-list">
+    <div class="card plan">
+      <h3>A 方案</h3>
+      <span class="price">100 分鐘｜2300 元</span>
+      <div class="detail">指壓 + 油壓 + 機能保養</div>
+    </div>
 
-<h2>服務價目</h2>
+    <div class="card plan">
+      <h3>B 方案</h3>
+      <span class="price">60 分鐘｜1800 元</span>
+      <div class="detail">指壓按摩 + 機能保養</div>
+    </div>
 
-<div class="gallery">
+    <div class="card plan">
+      <h3>C 方案 4 手</h3>
+      <span class="price">100 分鐘｜4300 元</span>
+      <div class="detail">指定 2 位師傅<br>指壓 + 油壓 + 機能保養</div>
+    </div>
 
-<div class="card">
-<h3>舒壓按摩</h3>
-<p>60分鐘</p>
-<p class="price">$2000</p>
-</div>
+    <div class="card plan">
+      <h3>不挑師傅方案</h3>
+      <span class="price">100 分鐘｜2000 元</span>
+      <div class="detail">指壓 + 油壓 + 機能保養</div>
+    </div>
+  </div>
 
-<div class="card">
-<h3>深層放鬆</h3>
-<p>90分鐘</p>
-<p class="price">$3000</p>
-</div>
+  <div class="card extra-box" style="margin-top:18px;">
+    <div class="extra-grid">
+      <div class="extra-item">
+        <h3>外出方案</h3>
+        <p>
+          逢甲大學附近不收車馬費。<br>
+          其他區域另外酌收 300 元起 / 人。<br>
+          <span style="color:#d8e3f1;">（依地區計算為主）</span>
+        </p>
+      </div>
 
-<div class="card">
-<h3>VIP療程</h3>
-<p>120分鐘</p>
-<p class="price">$4000</p>
-</div>
+      <div class="extra-item">
+        <h3>加時</h3>
+        <p>
+          加時 30 分鐘（只限一次）<br>
+          500 元 / 人
+        </p>
+      </div>
 
-</div>
-
+      <div class="extra-item">
+        <h3>夜間加成</h3>
+        <p>
+          23:00 後 +200 元 / 人<br>
+          23:30 後 +300 元 / 人<br>
+          00:30 後 +600 元 / 人
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 環境 -->
+<section class="section" id="space">
+  <h2 class="section-title">工作室環境</h2>
+  <p class="section-subtitle">工作室門口可停摩托車，附近也有便宜又好停的汽車停車場。</p>
 
-<section>
+  <div class="space-grid">
+    <div class="space-gallery">
+      <img src="room1.jpg" alt="H2 SPA 工作室環境照片1">
+      <img src="room2.jpg" alt="H2 SPA 工作室環境照片2">
+      <img src="room3.jpg" alt="H2 SPA 工作室環境照片3">
+      <img src="room4.jpg" alt="H2 SPA 工作室環境照片4">
+    </div>
 
-<h2>環境空間</h2>
-
-<div class="gallery">
-
-<img src="room1.jpg">
-<img src="room2.jpg">
-<img src="room3.jpg">
-
-</div>
-
+    <div class="card space-info">
+      <ul>
+        <li>位於台中市西屯區逢甲商圈，交通方便。</li>
+        <li>工作室門口可停摩托車，來店更輕鬆。</li>
+        <li>附近有便宜又好停的汽車停車場，開車也方便。</li>
+        <li>採預約制，保有舒適與隱私。</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- 評價 -->
+<section class="section" id="map">
+  <h2 class="section-title">地圖</h2>
+  <p class="section-subtitle">台中市西屯區福上巷220號</p>
 
-<section>
+  <div class="card map-card">
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=台中市西屯區福上巷220號&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
 
-<h2>客人評價</h2>
+<section class="section" id="job">
+  <h2 class="section-title">徵才資訊</h2>
+  <p class="section-subtitle">歡迎對按摩工作有興趣、重視服務品質與互動感的人加入。</p>
 
-<div class="gallery">
+  <div class="card job-box">
+    <p>
+      H2 SPA 位於台中市西屯區逢甲商圈，高抽成，環境單純，採預約制安排。希望找到重視禮貌、形象、時間配合與服務品質的夥伴。無經驗可免費提供教學。
+    </p>
 
-<div class="card">
-⭐️⭐️⭐️⭐️⭐️  
-師傅很帥，按摩很放鬆。
-</div>
+    <div class="job-points">
+      <div>工作地點：台中市西屯區逢甲商圈</div>
+      <div>工作型態：預約制安排</div>
+      <div>條件加分：親切互動、形象自然、配合度佳</div>
+      <div>聯絡方式：可直接透過 LINE 詢問面談資訊</div>
+    </div>
+  </div>
+</section>
 
-<div class="card">
-⭐️⭐️⭐️⭐️⭐️  
-環境乾淨，體驗很好。
-</div>
-
-</div>
-
+<section class="section" style="padding-top:0;">
+  <div class="card notice">本店不提供性服務</div>
 </section>
 
 <footer>
-
-<p>
-H2 SPA｜台中按摩｜台中西區按摩｜台中男士SPA
-</p>
-
+  H2 SPA｜台中西屯區按摩｜逢甲按摩推薦｜台中男士按摩｜台中按摩推薦
 </footer>
 
-<a class="line" href="https://line.me">
-LINE預約
-</a>
+<a class="line-float" href="https://line.me">LINE 預約</a>
 
 </body>
-
 </html>
 ```
+這是我剛修改過的，但我GOOGLE地址無法顯示，請幫我直接更改到台中市西屯區福上巷220號
