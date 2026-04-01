@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>H2 SPA｜台中按摩｜逢甲按摩｜台中男士按摩｜同志友善按摩推薦</title>
+<title>H2 SPA｜台中按摩推薦｜逢甲按摩｜西屯按摩｜台中男士按摩 SPA</title>
 
-<meta name="description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供指壓按摩、油壓按摩、機能保養、外出方案。台中按摩推薦、逢甲按摩、台中男士按摩、同志友善按摩、台中舒壓按摩。">
+<meta name="description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供台中男士按摩、指壓按摩、油壓按摩、舒壓服務與外出方案。鄰近逢甲夜市，交通方便，是台中按摩推薦、逢甲按摩與西屯按摩工作室的好選擇。">
 
-<meta name="keywords" content="台中按摩,台中按摩推薦,逢甲按摩,西屯按摩,台中男士按摩,同志友善按摩,台中舒壓按摩,台中SPA,台中油壓按摩,台中指壓按摩,逢甲SPA,台中按摩工作室">
+<meta name="keywords" content="台中按摩,台中按摩推薦,逢甲按摩,西屯按摩,台中SPA,逢甲SPA,西屯SPA,台中男士按摩,台中舒壓按摩,台中油壓按摩,台中指壓按摩,台中按摩工作室,同志友善按摩,台中同志友善按摩">
 
 <meta name="robots" content="index, follow">
 <meta name="author" content="H2 SPA">
 <meta name="theme-color" content="#06070b">
 
-<meta property="og:title" content="H2 SPA｜台中按摩｜逢甲按摩｜台中男士按摩">
-<meta property="og:description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供指壓按摩、油壓按摩、機能保養、外出方案。">
+<meta property="og:title" content="H2 SPA｜台中按摩推薦｜逢甲按摩｜西屯按摩｜台中男士按摩">
+<meta property="og:description" content="H2 SPA 位於台中市西屯區逢甲商圈，提供台中男士按摩、指壓按摩、油壓按摩、舒壓服務與外出方案。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="cover.jpg">
 
@@ -42,7 +42,10 @@
     "台中男士按摩",
     "同志友善按摩",
     "台中舒壓按摩",
-    "台中SPA"
+    "台中SPA",
+    "台中油壓按摩",
+    "台中指壓按摩",
+    "台中按摩工作室"
   ]
 }
 </script>
@@ -79,6 +82,8 @@ body{
     radial-gradient(circle at top, #1c2230 0%, #0b0f17 40%, #050608 100%);
   line-height:1.7;
   overflow-x:hidden;
+  -webkit-user-select:none;
+  user-select:none;
 }
 
 /* 背景動態光暈 */
@@ -358,14 +363,10 @@ body::before{
   display:block;
   transition:.28s ease;
   border:1px solid rgba(58,168,255,0.18);
-  cursor:pointer;
-}
-
-.photo-row img:hover{
-  transform:translateY(-3px) scale(1.02);
-  box-shadow:
-    0 0 16px rgba(0,217,255,0.25),
-    0 0 22px rgba(177,0,255,0.14);
+  user-select:none;
+  -webkit-user-drag:none;
+  -webkit-touch-callout:none;
+  pointer-events:none;
 }
 
 .info{
@@ -435,6 +436,9 @@ body::before{
   display:block;
   border-radius:16px;
   border:1px solid rgba(58,168,255,0.16);
+  user-select:none;
+  -webkit-user-drag:none;
+  -webkit-touch-callout:none;
 }
 
 .space-info{
@@ -567,39 +571,6 @@ footer{
   box-shadow:0 0 22px rgba(0,217,255,0.25);
 }
 
-/* Lightbox */
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.88);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
-  padding:20px;
-}
-
-.lightbox.show{
-  display:flex;
-}
-
-.lightbox img{
-  max-width:92vw;
-  max-height:88vh;
-  border-radius:16px;
-  box-shadow:0 0 30px rgba(0,217,255,0.18);
-}
-
-.lightbox-close{
-  position:absolute;
-  top:18px;
-  right:18px;
-  color:#fff;
-  font-size:32px;
-  cursor:pointer;
-  line-height:1;
-}
-
 /* SEO 文字 */
 .seo-text{
   position:absolute;
@@ -650,7 +621,7 @@ footer{
 </style>
 </head>
 
-<body>
+<body oncontextmenu="return false">
 
 <nav class="nav">
   <div class="nav-inner">
@@ -670,7 +641,7 @@ footer{
     <h1>H2 SPA</h1>
     <div class="hero-sub">台中逢甲 男士按摩工作室</div>
     <div class="hero-desc">
-      指壓按摩、油壓按摩、機能保養。汽機車停車方便。誠徵按摩師高抽成。台中按摩推薦、逢甲按摩、台中男士按摩、同志友善按摩。
+      指壓按摩、油壓按摩、機能保養。汽機車停車方便。誠徵按摩師高抽成。台中按摩推薦、逢甲按摩、西屯按摩、台中男士按摩、同志友善按摩。
     </div>
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://line.me/R/ti/p/@499bwixl?ts=04020204&oat_content=url">LINE 預約</a>
@@ -693,10 +664,10 @@ footer{
 
   <div class="card therapist" data-tags="popular gentle">
     <div class="photo-row">
-      <img src="11.jpg" alt="H2 SPA 師傅1 照片1" class="zoomable">
-      <img src="12.jpg" alt="H2 SPA 師傅1 照片2" class="zoomable">
-      <img src="13.jpg" alt="H2 SPA 師傅1 照片3" class="zoomable">
-      <img src="14.jpg" alt="H2 SPA 師傅1 照片4" class="zoomable">
+      <img src="11.jpg" alt="H2 SPA 師傅1 照片1" draggable="false">
+      <img src="12.jpg" alt="H2 SPA 師傅1 照片2" draggable="false">
+      <img src="13.jpg" alt="H2 SPA 師傅1 照片3" draggable="false">
+      <img src="14.jpg" alt="H2 SPA 師傅1 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 1</h3>
@@ -706,10 +677,10 @@ footer{
 
   <div class="card therapist" data-tags="popular sport">
     <div class="photo-row">
-      <img src="21.jpg" alt="H2 SPA 師傅2 照片1" class="zoomable">
-      <img src="22.jpg" alt="H2 SPA 師傅2 照片2" class="zoomable">
-      <img src="23.jpg" alt="H2 SPA 師傅2 照片3" class="zoomable">
-      <img src="24.jpg" alt="H2 SPA 師傅2 照片4" class="zoomable">
+      <img src="21.jpg" alt="H2 SPA 師傅2 照片1" draggable="false">
+      <img src="22.jpg" alt="H2 SPA 師傅2 照片2" draggable="false">
+      <img src="23.jpg" alt="H2 SPA 師傅2 照片3" draggable="false">
+      <img src="24.jpg" alt="H2 SPA 師傅2 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 2</h3>
@@ -719,10 +690,10 @@ footer{
 
   <div class="card therapist" data-tags="gentle">
     <div class="photo-row">
-      <img src="31.jpg" alt="H2 SPA 師傅3 照片1" class="zoomable">
-      <img src="32.jpg" alt="H2 SPA 師傅3 照片2" class="zoomable">
-      <img src="33.jpg" alt="H2 SPA 師傅3 照片3" class="zoomable">
-      <img src="34.jpg" alt="H2 SPA 師傅3 照片4" class="zoomable">
+      <img src="31.jpg" alt="H2 SPA 師傅3 照片1" draggable="false">
+      <img src="32.jpg" alt="H2 SPA 師傅3 照片2" draggable="false">
+      <img src="33.jpg" alt="H2 SPA 師傅3 照片3" draggable="false">
+      <img src="34.jpg" alt="H2 SPA 師傅3 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 3</h3>
@@ -732,10 +703,10 @@ footer{
 
   <div class="card therapist" data-tags="sport">
     <div class="photo-row">
-      <img src="41.jpg" alt="H2 SPA 師傅4 照片1" class="zoomable">
-      <img src="42.jpg" alt="H2 SPA 師傅4 照片2" class="zoomable">
-      <img src="43.jpg" alt="H2 SPA 師傅4 照片3" class="zoomable">
-      <img src="44.jpg" alt="H2 SPA 師傅4 照片4" class="zoomable">
+      <img src="41.jpg" alt="H2 SPA 師傅4 照片1" draggable="false">
+      <img src="42.jpg" alt="H2 SPA 師傅4 照片2" draggable="false">
+      <img src="43.jpg" alt="H2 SPA 師傅4 照片3" draggable="false">
+      <img src="44.jpg" alt="H2 SPA 師傅4 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 4</h3>
@@ -745,10 +716,10 @@ footer{
 
   <div class="card therapist" data-tags="new gentle">
     <div class="photo-row">
-      <img src="51.jpg" alt="H2 SPA 師傅5 照片1" class="zoomable">
-      <img src="52.jpg" alt="H2 SPA 師傅5 照片2" class="zoomable">
-      <img src="53.jpg" alt="H2 SPA 師傅5 照片3" class="zoomable">
-      <img src="54.jpg" alt="H2 SPA 師傅5 照片4" class="zoomable">
+      <img src="51.jpg" alt="H2 SPA 師傅5 照片1" draggable="false">
+      <img src="52.jpg" alt="H2 SPA 師傅5 照片2" draggable="false">
+      <img src="53.jpg" alt="H2 SPA 師傅5 照片3" draggable="false">
+      <img src="54.jpg" alt="H2 SPA 師傅5 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 5</h3>
@@ -758,10 +729,10 @@ footer{
 
   <div class="card therapist" data-tags="new popular">
     <div class="photo-row">
-      <img src="61.jpg" alt="H2 SPA 師傅6 照片1" class="zoomable">
-      <img src="62.jpg" alt="H2 SPA 師傅6 照片2" class="zoomable">
-      <img src="63.jpg" alt="H2 SPA 師傅6 照片3" class="zoomable">
-      <img src="64.jpg" alt="H2 SPA 師傅6 照片4" class="zoomable">
+      <img src="61.jpg" alt="H2 SPA 師傅6 照片1" draggable="false">
+      <img src="62.jpg" alt="H2 SPA 師傅6 照片2" draggable="false">
+      <img src="63.jpg" alt="H2 SPA 師傅6 照片3" draggable="false">
+      <img src="64.jpg" alt="H2 SPA 師傅6 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 6</h3>
@@ -771,10 +742,10 @@ footer{
 
   <div class="card therapist" data-tags="sport">
     <div class="photo-row">
-      <img src="71.jpg" alt="H2 SPA 師傅7 照片1" class="zoomable">
-      <img src="72.jpg" alt="H2 SPA 師傅7 照片2" class="zoomable">
-      <img src="73.jpg" alt="H2 SPA 師傅7 照片3" class="zoomable">
-      <img src="74.jpg" alt="H2 SPA 師傅7 照片4" class="zoomable">
+      <img src="71.jpg" alt="H2 SPA 師傅7 照片1" draggable="false">
+      <img src="72.jpg" alt="H2 SPA 師傅7 照片2" draggable="false">
+      <img src="73.jpg" alt="H2 SPA 師傅7 照片3" draggable="false">
+      <img src="74.jpg" alt="H2 SPA 師傅7 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 7</h3>
@@ -784,10 +755,10 @@ footer{
 
   <div class="card therapist" data-tags="gentle">
     <div class="photo-row">
-      <img src="81.jpg" alt="H2 SPA 師傅8 照片1" class="zoomable">
-      <img src="82.jpg" alt="H2 SPA 師傅8 照片2" class="zoomable">
-      <img src="83.jpg" alt="H2 SPA 師傅8 照片3" class="zoomable">
-      <img src="84.jpg" alt="H2 SPA 師傅8 照片4" class="zoomable">
+      <img src="81.jpg" alt="H2 SPA 師傅8 照片1" draggable="false">
+      <img src="82.jpg" alt="H2 SPA 師傅8 照片2" draggable="false">
+      <img src="83.jpg" alt="H2 SPA 師傅8 照片3" draggable="false">
+      <img src="84.jpg" alt="H2 SPA 師傅8 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 8</h3>
@@ -797,10 +768,10 @@ footer{
 
   <div class="card therapist" data-tags="popular sport">
     <div class="photo-row">
-      <img src="91.jpg" alt="H2 SPA 師傅9 照片1" class="zoomable">
-      <img src="92.jpg" alt="H2 SPA 師傅9 照片2" class="zoomable">
-      <img src="93.jpg" alt="H2 SPA 師傅9 照片3" class="zoomable">
-      <img src="94.jpg" alt="H2 SPA 師傅9 照片4" class="zoomable">
+      <img src="91.jpg" alt="H2 SPA 師傅9 照片1" draggable="false">
+      <img src="92.jpg" alt="H2 SPA 師傅9 照片2" draggable="false">
+      <img src="93.jpg" alt="H2 SPA 師傅9 照片3" draggable="false">
+      <img src="94.jpg" alt="H2 SPA 師傅9 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 9</h3>
@@ -810,10 +781,10 @@ footer{
 
   <div class="card therapist" data-tags="new gentle">
     <div class="photo-row">
-      <img src="101.jpg" alt="H2 SPA 師傅10 照片1" class="zoomable">
-      <img src="102.jpg" alt="H2 SPA 師傅10 照片2" class="zoomable">
-      <img src="103.jpg" alt="H2 SPA 師傅10 照片3" class="zoomable">
-      <img src="104.jpg" alt="H2 SPA 師傅10 照片4" class="zoomable">
+      <img src="101.jpg" alt="H2 SPA 師傅10 照片1" draggable="false">
+      <img src="102.jpg" alt="H2 SPA 師傅10 照片2" draggable="false">
+      <img src="103.jpg" alt="H2 SPA 師傅10 照片3" draggable="false">
+      <img src="104.jpg" alt="H2 SPA 師傅10 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 10</h3>
@@ -823,10 +794,10 @@ footer{
 
   <div class="card therapist" data-tags="gentle">
     <div class="photo-row">
-      <img src="111.jpg" alt="H2 SPA 師傅11 照片1" class="zoomable">
-      <img src="112.jpg" alt="H2 SPA 師傅11 照片2" class="zoomable">
-      <img src="113.jpg" alt="H2 SPA 師傅11 照片3" class="zoomable">
-      <img src="114.jpg" alt="H2 SPA 師傅11 照片4" class="zoomable">
+      <img src="111.jpg" alt="H2 SPA 師傅11 照片1" draggable="false">
+      <img src="112.jpg" alt="H2 SPA 師傅11 照片2" draggable="false">
+      <img src="113.jpg" alt="H2 SPA 師傅11 照片3" draggable="false">
+      <img src="114.jpg" alt="H2 SPA 師傅11 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 11</h3>
@@ -836,10 +807,10 @@ footer{
 
   <div class="card therapist" data-tags="sport popular">
     <div class="photo-row">
-      <img src="121.jpg" alt="H2 SPA 師傅12 照片1" class="zoomable">
-      <img src="122.jpg" alt="H2 SPA 師傅12 照片2" class="zoomable">
-      <img src="123.jpg" alt="H2 SPA 師傅12 照片3" class="zoomable">
-      <img src="124.jpg" alt="H2 SPA 師傅12 照片4" class="zoomable">
+      <img src="121.jpg" alt="H2 SPA 師傅12 照片1" draggable="false">
+      <img src="122.jpg" alt="H2 SPA 師傅12 照片2" draggable="false">
+      <img src="123.jpg" alt="H2 SPA 師傅12 照片3" draggable="false">
+      <img src="124.jpg" alt="H2 SPA 師傅12 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 12</h3>
@@ -849,10 +820,10 @@ footer{
 
   <div class="card therapist" data-tags="new">
     <div class="photo-row">
-      <img src="131.jpg" alt="H2 SPA 師傅13 照片1" class="zoomable">
-      <img src="132.jpg" alt="H2 SPA 師傅13 照片2" class="zoomable">
-      <img src="133.jpg" alt="H2 SPA 師傅13 照片3" class="zoomable">
-      <img src="134.jpg" alt="H2 SPA 師傅13 照片4" class="zoomable">
+      <img src="131.jpg" alt="H2 SPA 師傅13 照片1" draggable="false">
+      <img src="132.jpg" alt="H2 SPA 師傅13 照片2" draggable="false">
+      <img src="133.jpg" alt="H2 SPA 師傅13 照片3" draggable="false">
+      <img src="134.jpg" alt="H2 SPA 師傅13 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 13</h3>
@@ -862,10 +833,10 @@ footer{
 
   <div class="card therapist" data-tags="sport">
     <div class="photo-row">
-      <img src="141.jpg" alt="H2 SPA 師傅14 照片1" class="zoomable">
-      <img src="142.jpg" alt="H2 SPA 師傅14 照片2" class="zoomable">
-      <img src="143.jpg" alt="H2 SPA 師傅14 照片3" class="zoomable">
-      <img src="144.jpg" alt="H2 SPA 師傅14 照片4" class="zoomable">
+      <img src="141.jpg" alt="H2 SPA 師傅14 照片1" draggable="false">
+      <img src="142.jpg" alt="H2 SPA 師傅14 照片2" draggable="false">
+      <img src="143.jpg" alt="H2 SPA 師傅14 照片3" draggable="false">
+      <img src="144.jpg" alt="H2 SPA 師傅14 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 14</h3>
@@ -875,10 +846,10 @@ footer{
 
   <div class="card therapist" data-tags="popular gentle">
     <div class="photo-row">
-      <img src="151.jpg" alt="H2 SPA 師傅15 照片1" class="zoomable">
-      <img src="152.jpg" alt="H2 SPA 師傅15 照片2" class="zoomable">
-      <img src="153.jpg" alt="H2 SPA 師傅15 照片3" class="zoomable">
-      <img src="154.jpg" alt="H2 SPA 師傅15 照片4" class="zoomable">
+      <img src="151.jpg" alt="H2 SPA 師傅15 照片1" draggable="false">
+      <img src="152.jpg" alt="H2 SPA 師傅15 照片2" draggable="false">
+      <img src="153.jpg" alt="H2 SPA 師傅15 照片3" draggable="false">
+      <img src="154.jpg" alt="H2 SPA 師傅15 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 15</h3>
@@ -888,10 +859,10 @@ footer{
 
   <div class="card therapist" data-tags="new sport">
     <div class="photo-row">
-      <img src="161.jpg" alt="H2 SPA 師傅16 照片1" class="zoomable">
-      <img src="162.jpg" alt="H2 SPA 師傅16 照片2" class="zoomable">
-      <img src="163.jpg" alt="H2 SPA 師傅16 照片3" class="zoomable">
-      <img src="164.jpg" alt="H2 SPA 師傅16 照片4" class="zoomable">
+      <img src="161.jpg" alt="H2 SPA 師傅16 照片1" draggable="false">
+      <img src="162.jpg" alt="H2 SPA 師傅16 照片2" draggable="false">
+      <img src="163.jpg" alt="H2 SPA 師傅16 照片3" draggable="false">
+      <img src="164.jpg" alt="H2 SPA 師傅16 照片4" draggable="false">
     </div>
     <div class="info">
       <h3>師傅 16</h3>
@@ -937,24 +908,23 @@ footer{
         <p>
           逢甲大學附近不收車馬費。<br>
           其他區域另外酌收 300 元起 / 人。<br>
-          <span style="color:#d8e3f1;">（依地區計算為主）</span>
+          <span style="color:#d8e3f1;">（依地區距離調整）</span>
         </p>
       </div>
 
       <div class="extra-item">
-        <h3>加時</h3>
+        <h3>營業資訊</h3>
         <p>
-          加時 30 分鐘（只限一次）<br>
-          500 元 / 人
+          採預約制安排。<br>
+          可先透過 LINE 詢問時段與師傅狀況。
         </p>
       </div>
 
       <div class="extra-item">
-        <h3>夜間加成</h3>
+        <h3>服務提醒</h3>
         <p>
-          23:00 後 +200 元 / 人<br>
-          23:30 後 +300 元 / 人<br>
-          00:30 後 +600 元 / 人
+          方案內容與安排依現場及預約狀況調整。<br>
+          建議提前預約，以利安排時段。
         </p>
       </div>
     </div>
@@ -963,21 +933,21 @@ footer{
 
 <section class="section" id="space">
   <h2 class="section-title">工作室環境</h2>
-  <p class="section-subtitle">工作室門口可停摩托車，附近也有便宜又好停的汽車停車場。</p>
+  <p class="section-subtitle">舒適、隱私、放鬆的空間氛圍。</p>
 
   <div class="space-grid">
     <div class="space-gallery">
-      <img src="room1.jpg" alt="H2 SPA 工作室環境照片1">
-      <img src="room2.jpg" alt="H2 SPA 工作室環境照片2">
-      <img src="room3.jpg" alt="H2 SPA 工作室環境照片3">
-      <img src="room4.jpg" alt="H2 SPA 工作室環境照片4">
+      <img src="space1.jpg" alt="H2 SPA 工作室環境1" draggable="false">
+      <img src="space2.jpg" alt="H2 SPA 工作室環境2" draggable="false">
+      <img src="space3.jpg" alt="H2 SPA 工作室環境3" draggable="false">
+      <img src="space4.jpg" alt="H2 SPA 工作室環境4" draggable="false">
     </div>
 
     <div class="card space-info">
       <ul>
-        <li>位於台中市西屯區逢甲商圈，交通方便。</li>
-        <li>工作室門口可停摩托車，來店更輕鬆。</li>
-        <li>附近有便宜又好停的汽車停車場，開車也方便。</li>
+        <li>位於台中市西屯區逢甲商圈，交通便利。</li>
+        <li>附近汽車、機車停車方便。</li>
+        <li>空間整潔舒適，重視隱私感與放鬆感。</li>
         <li>採預約制，保有舒適與隱私。</li>
       </ul>
     </div>
@@ -1023,20 +993,19 @@ footer{
 </section>
 
 <div class="seo-text">
-台中按摩 台中按摩推薦 逢甲按摩 西屯按摩 台中男士按摩 同志友善按摩 台中舒壓按摩
-台中SPA 台中油壓按摩 台中指壓按摩 逢甲SPA 台中按摩工作室
+台中按摩推薦、台中按摩、逢甲按摩、西屯按摩、台中男士按摩、同志友善按摩、台中舒壓按摩、
+台中SPA、台中油壓按摩、台中指壓按摩、逢甲SPA、台中按摩工作室。
+H2 SPA 位於台中市西屯區逢甲商圈，提供男士按摩、油壓按摩、指壓按摩與舒壓服務。
+如果你正在找台中按摩推薦、逢甲按摩工作室、西屯按摩、台中SPA、台中男士按摩，
+H2 SPA 提供舒適放鬆的按摩體驗，環境隱私、交通方便，鄰近逢甲夜市與河南路，
+是台中按摩推薦與逢甲按摩放鬆的好選擇。
 </div>
 
 <footer>
   H2 SPA｜台中西屯區按摩｜逢甲按摩推薦｜台中男士按摩｜台中按摩推薦
 </footer>
 
-<a class="line-float" https://manager.line.biz/account/@499bwixl/gainfriends">LINE 預約</a>
-
-<div class="lightbox" id="lightbox">
-  <span class="lightbox-close" id="lightboxClose">&times;</span>
-  <img id="lightboxImg" src="" alt="放大照片">
-</div>
+<a class="line-float" href="https://line.me/R/ti/p/@499bwixl?ts=04020204&oat_content=url" target="_blank" rel="noopener noreferrer">LINE 預約</a>
 
 <script>
 /* 師傅篩選 */
@@ -1061,27 +1030,15 @@ filterButtons.forEach(button => {
   });
 });
 
-/* 點照片放大 */
-const zoomableImages = document.querySelectorAll('.zoomable');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const lightboxClose = document.getElementById('lightboxClose');
-
-zoomableImages.forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('show');
-  });
-});
-
-lightboxClose.addEventListener('click', () => {
-  lightbox.classList.remove('show');
-});
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    lightbox.classList.remove('show');
+/* 禁止常見查看原始碼與儲存快捷鍵 */
+document.addEventListener('keydown', function(e) {
+  if (
+    (e.ctrlKey && (e.key === 's' || e.key === 'S')) ||
+    (e.ctrlKey && (e.key === 'u' || e.key === 'U')) ||
+    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) ||
+    e.key === 'F12'
+  ) {
+    e.preventDefault();
   }
 });
 </script>
