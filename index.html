@@ -1484,7 +1484,7 @@ footer{
   <div>© 2026 H2 Men's Spa (h2spa) All Rights Reserved.</div>
 </footer>
 
-<a class="line-float" href="https://line.me/R/ti/p/@499bwixl" target="_blank">LINE 線上預約</a>
+
 
 <script>
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -1511,8 +1511,14 @@ filterButtons.forEach(button => {
   <span>立即預約</span>
 </a>
 
+<!-- 整合版 LINE 漂浮按鈕：手機版顯示圓型，桌機版不干擾視覺 -->
+<a href="https://line.me/R/ti/p/@499bwixl" target="_blank" class="unified-line-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE 預約">
+  <span>預約</span>
+</a>
+
 <style>
-.floating-line-btn {
+.unified-line-btn {
   position: fixed;
   bottom: 25px;
   right: 20px;
@@ -1530,13 +1536,13 @@ filterButtons.forEach(button => {
   text-decoration: none;
   transition: transform 0.3s;
 }
-.floating-line-btn:hover { transform: scale(1.1); }
-.floating-line-btn img { width: 30px; height: 30px; }
-.floating-line-btn span { font-size: 10px; margin-top: 2px; font-weight: bold; }
+.unified-line-btn:hover { transform: scale(1.1); }
+.unified-line-btn img { width: 30px; height: 30px; }
+.unified-line-btn span { font-size: 10px; margin-top: 2px; font-weight: bold; }
 
-/* 桌面版隱藏，手機版顯示 */
+/* 桌面版隱藏，手機版顯示（避免擋住網頁內容） */
 @media (min-width: 769px) {
-  .floating-line-btn { display: none; }
+  .unified-line-btn { display: none; }
 }
 </style>
 </body>
