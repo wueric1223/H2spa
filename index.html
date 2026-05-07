@@ -638,7 +638,32 @@ footer{
   .features-grid,.seo-links-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  .nav-links{display:none}
+  .nav-links{
+    display:flex;
+    overflow-x:auto;
+    gap:8px;
+    width:100%;
+    padding-top:10px;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  .nav-links::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .nav-links a{
+    white-space:nowrap;
+    flex-shrink:0;
+    font-size:12px;
+    padding:8px 12px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(0,217,255,.10);
+  }
   .photo-row{grid-template-columns:repeat(2,1fr)}
   .plans-grid,.recruitment-grid,.key-list{grid-template-columns:1fr}
   .hero{min-height:68vh;padding:86px 18px}
@@ -673,7 +698,7 @@ footer{
     <p class="hero-sub">H2 Men's Spa 位於台中西屯福上巷，近逢甲商圈，提供預約制男士按摩、運動後放鬆與隱私舒壓體驗。</p>
     <p class="hero-note">可先透過 LINE 詢問今日空位、師傅安排、方案內容與預約時段。</p>
     <div class="btn-group">
-      <a class="btn btn-primary" href="https://line.me/R/ti/p/@499bwixl" target="_blank" rel="noopener">立即預約師傅</a>
+      <a class="btn btn-primary" href="https://line.me/R/ti/p/@499bwixl" target="_blank" rel="noopener">詢問今天空位與師傅</a>
       <a class="btn btn-secondary" href="#plans">查看方案價格</a>
     </div>
   </div>
@@ -958,6 +983,32 @@ footer{
 <details><summary>可以指定師傅嗎？</summary><p>可以先查看網站師傅介紹，再透過 LINE 詢問指定師傅可預約時段。</p></details>
 <details><summary>H2 Men's Spa 適合哪些客人？</summary><p>適合想在台中西屯、逢甲附近安排男士按摩、同志友善舒壓、運動後放鬆與隱私預約空間的客人。</p></details>
 <details><summary>是否提供性服務？</summary><p>本店不提供性服務，服務內容以按摩、舒壓、男士保養與預約制放鬆體驗為主。</p></details>
+  
+    <details>
+      <summary>第一次預約需要準備什麼？</summary>
+      <p>第一次預約可先透過 LINE 詢問時段、方案與師傅安排，依照預約時間前往即可。</p>
+    </details>
+
+    <details>
+      <summary>可以指定喜歡的男師風格嗎？</summary>
+      <p>可以先查看網站師傅介紹與照片，再透過 LINE 詢問指定師傅可預約時段。</p>
+    </details>
+
+    <details>
+      <summary>健身後適合安排按摩嗎？</summary>
+      <p>若有健身訓練後肌肉緊繃、疲勞或壓力累積，安排運動後舒壓與放鬆通常會更舒服。</p>
+    </details>
+
+    <details>
+      <summary>晚上還可以預約嗎？</summary>
+      <p>可先透過 LINE 詢問晚間與深夜時段安排，實際可預約時間以官方回覆為準。</p>
+    </details>
+
+    <details>
+      <summary>台中西屯男士按摩推薦怎麼選？</summary>
+      <p>建議優先確認預約方式、方案價格、師傅資訊與交通位置，資訊透明度越高越安心。</p>
+    </details>
+
   </div>
 </section>
 
@@ -973,6 +1024,32 @@ footer{
     <a class="seo-link-card" href="https://www.h2menspa.com/seo/fengjia-massage.html"><h3>逢甲按摩推薦</h3><p>逢甲商圈附近按摩、夜間行程與交通便利性。</p></a>
   </div>
 </section>
+
+
+<section class="section" id="blog">
+  <h2 class="section-title">男士按摩與 SPA 專欄</h2>
+  <p class="section-subtitle">整理男士舒壓、運動放鬆、西屯逢甲按摩與第一次預約常見問題。</p>
+
+  <div class="seo-links-grid">
+
+    <a class="seo-link-card" href="/blog/first-time-mens-spa.html">
+      <h3>第一次預約男士 SPA 會尷尬嗎？</h3>
+      <p>第一次安排男士舒壓前，可以先了解流程、預約方式與常見問題。</p>
+    </a>
+
+    <a class="seo-link-card" href="/blog/gym-recovery-massage.html">
+      <h3>健身後為什麼需要運動按摩？</h3>
+      <p>運動後的放鬆與筋膜舒緩，可以幫助恢復與降低緊繃感。</p>
+    </a>
+
+    <a class="seo-link-card" href="/blog/xitun-massage-guide.html">
+      <h3>西屯區男士按摩推薦指南</h3>
+      <p>整理西屯、逢甲附近適合安排男士按摩與 SPA 的放鬆空間。</p>
+    </a>
+
+  </div>
+</section>
+
 
 <section class="section" id="recruitment">
   <h2 class="section-title">徵才資訊</h2>
@@ -1003,7 +1080,7 @@ footer{
 
 <a href="https://line.me/R/ti/p/@499bwixl" target="_blank" rel="noopener" class="line-float" aria-label="LINE 預約 H2 Men's Spa">
   <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="" width="30" height="30">
-  <span>今日師傅</span>
+  <span>詢問空位</span>
 </a>
 
 <script>
