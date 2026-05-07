@@ -874,6 +874,324 @@ footer{
     </div>
 </section>
 
+  <section class="section">
+  <div class="content-box booking-flow-box">
+    
+    <div class="flow-title-wrap">
+      <span class="flow-tag">BOOKING FLOW</span>
+      <h2 class="flow-title">輕鬆預約三步驟</h2>
+      <p class="flow-subtitle">簡單預約流程，快速安排您的放鬆時光</p>
+    </div>
+
+    <div class="flow-container">
+
+      <div class="flow-item">
+        <div class="flow-number">01</div>
+        <div class="flow-glow"></div>
+
+        <h4>加入 LINE 諮詢</h4>
+        <p>
+          點擊 LINE 加入官方帳號，詢問今日空位、
+          指定師傅或想安排的時段。
+        </p>
+      </div>
+
+      <div class="flow-line"></div>
+
+      <div class="flow-item">
+        <div class="flow-number">02</div>
+        <div class="flow-glow"></div>
+
+        <h4>確認時間與方案</h4>
+        <p>
+          確認服務內容、方案與預約時間，
+          完成預約登記安排。
+        </p>
+      </div>
+
+      <div class="flow-line"></div>
+
+      <div class="flow-item">
+        <div class="flow-number">03</div>
+        <div class="flow-glow"></div>
+
+        <h4>到店享受放鬆</h4>
+        <p>
+          依照預約時間抵達，
+          開啟您的專屬舒壓放鬆時光。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+
+.booking-flow-box{
+  position:relative;
+  overflow:hidden;
+  padding:70px 40px;
+  border-radius:32px;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(0,255,170,0.08),
+    rgba(0,217,255,0.05),
+    rgba(0,0,0,0.2)
+  );
+
+  border:1px solid rgba(0,255,200,0.15);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+  0 0 50px rgba(0,255,170,0.05),
+  inset 0 0 60px rgba(255,255,255,0.02);
+}
+
+/* 背景霧化漸層 */
+.booking-flow-box::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  left:-120px;
+  top:-180px;
+
+  background:
+  radial-gradient(circle,
+  rgba(0,255,170,0.15) 0%,
+  rgba(0,217,255,0.08) 35%,
+  transparent 70%);
+
+  filter:blur(90px);
+  pointer-events:none;
+}
+
+.booking-flow-box::after{
+  content:'';
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-120px;
+  bottom:-180px;
+
+  background:
+  radial-gradient(circle,
+  rgba(0,217,255,0.12) 0%,
+  rgba(0,255,170,0.05) 35%,
+  transparent 70%);
+
+  filter:blur(90px);
+  pointer-events:none;
+}
+
+.flow-title-wrap{
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.flow-tag{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:999px;
+
+  background:rgba(0,255,170,0.08);
+  border:1px solid rgba(0,255,170,0.2);
+
+  color:#6fffd2;
+  font-size:12px;
+  letter-spacing:2px;
+
+  margin-bottom:18px;
+}
+
+.flow-title{
+  font-size:clamp(34px,5vw,48px);
+  margin:0;
+  font-weight:800;
+
+  background:linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #91ffe1 40%,
+    #64dfff 100%
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.flow-subtitle{
+  color:#a7b8cb;
+  margin-top:15px;
+  font-size:15px;
+}
+
+.flow-container{
+  margin-top:60px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+
+  position:relative;
+  z-index:2;
+}
+
+.flow-item{
+  position:relative;
+
+  flex:1;
+  min-width:240px;
+  max-width:320px;
+
+  padding:40px 28px;
+
+  border-radius:28px;
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(20px);
+
+  transition:.4s ease;
+
+  overflow:hidden;
+}
+
+.flow-item:hover{
+  transform:translateY(-8px);
+
+  border-color:rgba(0,255,170,0.35);
+
+  box-shadow:
+  0 0 35px rgba(0,255,170,0.08),
+  0 0 80px rgba(0,217,255,0.05);
+}
+
+.flow-number{
+  position:relative;
+  z-index:2;
+
+  width:70px;
+  height:70px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin:0 auto 25px;
+
+  font-size:24px;
+  font-weight:800;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #00ffb3,
+    #00d9ff
+  );
+
+  box-shadow:
+  0 0 25px rgba(0,255,170,0.35);
+}
+
+.flow-glow{
+  position:absolute;
+  width:180px;
+  height:180px;
+
+  top:-60px;
+  right:-60px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(circle,
+  rgba(0,255,170,0.15),
+  transparent 70%);
+
+  filter:blur(30px);
+}
+
+.flow-item h4{
+  text-align:center;
+  font-size:22px;
+  margin-bottom:16px;
+  color:white;
+}
+
+.flow-item p{
+  text-align:center;
+  font-size:15px;
+  line-height:1.9;
+  color:#b7c7d8;
+}
+
+.flow-line{
+  width:60px;
+  height:2px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,255,170,0.5),
+    rgba(0,217,255,0.5),
+    transparent
+  );
+
+  border-radius:999px;
+}
+
+@media (max-width:900px){
+
+  .booking-flow-box{
+    padding:55px 24px;
+  }
+
+  .flow-container{
+    flex-direction:column;
+  }
+
+  .flow-line{
+    width:2px;
+    height:50px;
+
+    background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(0,255,170,0.5),
+      rgba(0,217,255,0.5),
+      transparent
+    );
+  }
+
+  .flow-item{
+    width:100%;
+    max-width:100%;
+  }
+}
+
+</style>
+
 <style>
 /* 方案專屬樣式 */
 .plans-grid {
@@ -1067,6 +1385,14 @@ footer{
 </div>
 
 <footer>
+  <div class="footer-seo-links" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0,217,255,0.1); font-size: 13px; color: var(--muted); text-align: center;">
+  <p>熱門服務區域：
+    <a href="https://www.h2menspa.com/seo/xitun-massage.html" style="color: var(--muted); text-decoration: none; margin: 0 5px;">[台中西屯按摩]</a>
+    <a href="https://www.h2menspa.com/seo/fengjia-massage.html" style="color: var(--muted); text-decoration: none; margin: 0 5px;">[逢甲同志按摩]</a>
+    <a href="https://www.h2menspa.com/seo/taichung-gay-massage.html" style="color: var(--muted); text-decoration: none; margin: 0 5px;">[台中男士SPA推薦]</a>
+    <a href="https://www.h2menspa.com/seo/taichung-gay-spa.html" style="color: var(--muted); text-decoration: none; margin: 0 5px;">[台中GAY舒壓]</a>
+  </p>
+</div>
   <div class="footer-address">台中市西屯區福上巷218號</div>
   <div>© 2026 H2 Men's Spa (h2spa) All Rights Reserved.</div>
 </footer>
@@ -1092,6 +1418,39 @@ filterButtons.forEach(button => {
   });
 });
 </script>
+<!-- LINE 漂浮按鈕 -->
+<a href="https://line.me/R/ti/p/@499bwixl" target="_blank" class="floating-line-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE 預約">
+  <span>立即預約</span>
+</a>
 
+<style>
+.floating-line-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  background: #06c755;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+.floating-line-btn:hover { transform: scale(1.1); }
+.floating-line-btn img { width: 30px; height: 30px; }
+.floating-line-btn span { font-size: 10px; margin-top: 2px; font-weight: bold; }
+
+/* 桌面版隱藏，手機版顯示 */
+@media (min-width: 769px) {
+  .floating-line-btn { display: none; }
+}
+</style>
 </body>
 </html>
