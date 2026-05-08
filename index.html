@@ -415,17 +415,32 @@ img{max-width:100%;height:auto}
 }
 .filter-btn{
   cursor:pointer;
-  color:#fff;
-  background:rgba(255,255,255,.04);
+  color:#dff7ff;
+  background:rgba(255,255,255,.045);
   border:1px solid rgba(0,217,255,.10);
-  padding:10px 18px;
+  padding:12px 18px;
   border-radius:999px;
-  transition:.25s ease;
+  transition:.28s ease;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.5px;
+  backdrop-filter:blur(10px);
+  min-width:110px;
 }
-.filter-btn:hover{border-color:var(--green)}
+.filter-btn:hover{
+  border-color:rgba(0,255,157,.4);
+  color:#9effdc;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,255,157,.10);
+}
 .filter-btn.active{
-  background:linear-gradient(135deg,var(--green),var(--blue));
+  background:linear-gradient(135deg,var(--green),var(--blue),var(--blue2));
   color:#021014;
+  border:none;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.1),
+    0 10px 30px rgba(0,255,157,.22),
+    0 4px 16px rgba(0,217,255,.18);
 }
 .therapist{padding:22px;margin-bottom:28px}
 .therapist.hidden{display:none}
@@ -447,6 +462,28 @@ img{max-width:100%;height:auto}
 .info{text-align:center;margin-top:18px}
 .info h3{margin:0 0 8px;font-size:24px;color:#fff}
 .info p{color:var(--muted);margin:0}
+
+.tag-row{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(0,217,255,.10);
+  color:#9effdc;
+  letter-spacing:.5px;
+}
+
 .flow-box{
   padding:58px 34px;
   border-radius:32px;
@@ -704,24 +741,7 @@ footer{
   </div>
 </header>
 
-<section class="section" id="about">
-  <div class="intro-grid">
-    <div class="card content-card">
-      <h2>台中西屯逢甲附近的男士舒壓預約空間</h2>
-      <p>H2 Men's Spa 是位於台中市西屯區福上巷的男士按摩與舒壓空間，鄰近逢甲商圈。服務採預約制，適合想找台中男士按摩、同志友善舒壓、運動後放鬆或私人 SPA 體驗的客人。</p>
-      <p>我們重視預約前資訊清楚、到店後流程單純，以及整體空間的隱私與舒適感。第一次預約可先透過 LINE 詢問方案、師傅、時段與交通資訊。</p>
-    </div>
-    <div class="card content-card">
-      <h3>服務重點</h3>
-      <div class="key-list">
-        <div class="key-item"><strong>預約制</strong>先確認時段與師傅，減少等待。</div>
-        <div class="key-item"><strong>西屯逢甲</strong>近商圈，交通與停車便利。</div>
-        <div class="key-item"><strong>男士舒壓</strong>適合久坐、健身與壓力放鬆。</div>
-        <div class="key-item"><strong>隱私感</strong>重視單純、舒適的放鬆體驗。</div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="section" id="therapist">
   <h2 class="section-title">專業師傅團隊</h2>
@@ -729,105 +749,166 @@ footer{
 
   <div class="filter-bar" aria-label="師傅篩選">
     <button class="filter-btn active" data-filter="all" type="button">全部師傅</button>
-    <button class="filter-btn" data-filter="new" type="button">本月新人</button>
-    <button class="filter-btn" data-filter="popular" type="button">熱門推薦</button>
+    <button class="filter-btn" data-filter="fit" type="button">精實型男</button>
+    <button class="filter-btn" data-filter="muscle" type="button">肉壯厚實</button>
     <button class="filter-btn" data-filter="gentle" type="button">溫柔互動</button>
-    <button class="filter-btn" data-filter="sport" type="button">運動肉壯</button>
+    <button class="filter-btn" data-filter="skill" type="button">按摩技術派</button>
   </div>
 
   <div id="therapist-list">
-    
-    <article class="card therapist" data-tags="gentle">
+    <article class="card therapist" data-tags="muscle skill">
       <div class="photo-row">
         <img src="31.webp" alt="台中西屯男士按摩師 Cade 凱德" width="360" height="480" loading="eager" decoding="async" fetchpriority="high"><img src="32.webp" alt="H2 Men's Spa 男師 Cade 凱德" width="360" height="480" loading="lazy" decoding="async"><img src="33.webp" alt="逢甲附近男士舒壓師傅 Cade 凱德" width="360" height="480" loading="lazy" decoding="async"><img src="34.webp" alt="台中小隻馬男師 Cade 凱德" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
         <h3>Cade 凱德｜162/62/30</h3>
         <p>厚實肌肉小隻馬，短髮單眼皮，按摩力道扎實。</p>
+        <div class="tag-row"><span class="tag">肉壯厚實</span><span class="tag">按摩技術派</span></div>
       </div>
     </article>
-    <article class="card therapist" data-tags="sport">
+
+    <article class="card therapist" data-tags="muscle gentle">
       <div class="photo-row">
-        <img src="71.webp" alt="台中西屯男士按摩師 Ronnie 羅尼" width="360" height="480" loading="eager" decoding="async" fetchpriority="high"><img src="72.webp" alt="H2 Men's Spa 師傅 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="73.webp" alt="台中運動型男師 Ronnie" width="360" height="480" loading="lazy" decoding="async"><img src="74.webp" alt="逢甲附近男士 SPA Ronnie" width="360" height="480" loading="lazy" decoding="async">
+        <img src="41.webp" alt="台中西屯男士按摩師 Gary 蓋瑞" width="360" height="480" loading="eager" decoding="async" fetchpriority="high"><img src="42.webp" alt="H2 Men's Spa 暖男師傅 Gary 蓋瑞" width="360" height="480" loading="lazy" decoding="async"><img src="43.webp" alt="逢甲附近男士舒壓師傅 Gary" width="360" height="480" loading="lazy" decoding="async"><img src="44.webp" alt="台中單眼皮男師 Gary 蓋瑞" width="360" height="480" loading="lazy" decoding="async">
+      </div>
+      <div class="info">
+        <h3>Gary 蓋瑞｜173/68/30</h3>
+        <p>帥氣單眼皮、粗框眼鏡、大胸肌，暖男憨厚型，按摩力道足。</p>
+        <div class="tag-row"><span class="tag">肉壯厚實</span><span class="tag">按摩技術派</span></div>
+      </div>
+    </article>
+
+    <article class="card therapist" data-tags="fit gentle">
+      <div class="photo-row">
+        <img src="71.webp" alt="台中西屯男士按摩師 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="72.webp" alt="H2 Men's Spa 師傅 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="73.webp" alt="台中運動型男師 Ronnie" width="360" height="480" loading="lazy" decoding="async"><img src="74.webp" alt="逢甲附近男士 SPA Ronnie" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
         <h3>Ronnie 羅尼｜177/69/30</h3>
         <p>白皙帥氣，服務經驗豐富，互動自然。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">按摩技術派</span></div>
       </div>
     </article>
-    <article class="card therapist" data-tags="new sport">
-      <div class="photo-row">
-        <img src="151.webp" alt="台中運動按摩男師 Ted 泰德" width="360" height="480" loading="lazy" decoding="async"><img src="152.webp" alt="H2 Men's Spa 健身男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="153.webp" alt="西屯健身教練男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="154.webp" alt="台中男士運動舒壓 Ted" width="360" height="480" loading="lazy" decoding="async">
-      </div>
-      <div class="info">
-        <h3>Ted 泰德｜168/78/28</h3>
-        <p>健身教練背景，擅長運動後放鬆與力道扎實的舒壓。</p>
-      </div>
-    </article>
-    <article class="card therapist" data-tags="new popular">
+
+    <article class="card therapist" data-tags="gentle fit">
       <div class="photo-row">
         <img src="61.webp" alt="台中同志按摩師 Henry 亨利" width="360" height="480" loading="lazy" decoding="async"><img src="62.webp" alt="H2 Men's Spa 男師 Henry" width="360" height="480" loading="lazy" decoding="async"><img src="63.webp" alt="西屯白皙男師 Henry" width="360" height="480" loading="lazy" decoding="async"><img src="64.webp" alt="逢甲男士舒壓 Henry" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
         <h3>Henry 亨利｜176/67/23</h3>
         <p>白皙可愛，鄰家男孩型，小奶狗氣質。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">溫柔互動</span><span class="tag">肉壯厚實</span></div>
       </div>
     </article>
-    <article class="card therapist" data-tags="sport">
+
+    <article class="card therapist" data-tags="muscle skill">
       <div class="photo-row">
-        <img src="81.webp" alt="西屯男士按摩師 Wesley 衛斯理" width="360" height="480" loading="lazy" decoding="async"><img src="82.webp" alt="H2 Men's Spa 師傅 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="83.webp" alt="台中油壓男師 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="84.webp" alt="台中小隻馬男師 Wesley" width="360" height="480" loading="lazy" decoding="async">
+        <img src="151.webp" alt="台中運動按摩男師 Ted 泰德" width="360" height="480" loading="lazy" decoding="async"><img src="152.webp" alt="H2 Men's Spa 健身男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="153.webp" alt="西屯健身教練男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="154.webp" alt="台中男士運動舒壓 Ted" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
-        <h3>Wesley 衛斯理｜164/56/28</h3>
-        <p>小隻馬身形，專業油壓手法，配合度高。</p>
+        <h3>Ted 泰德｜168/78/28</h3>
+        <p>健身教練背景，擅長運動後放鬆與力道扎實的舒壓。</p>
+        <div class="tag-row"><span class="tag">肉壯厚實</span><span class="tag">按摩技術派</span></div>
       </div>
     </article>
-    <article class="card therapist" data-tags="popular">
-      <div class="photo-row">
-        <img src="101.webp" alt="台中男師按摩 Nick 尼克" width="360" height="480" loading="lazy" decoding="async"><img src="102.webp" alt="H2 Men's Spa 男師 Nick" width="360" height="480" loading="lazy" decoding="async"><img src="103.webp" alt="西屯男士 SPA Nick" width="360" height="480" loading="lazy" decoding="async"><img src="104.webp" alt="逢甲附近男師 Nick" width="360" height="480" loading="lazy" decoding="async">
-      </div>
-      <div class="info">
-        <h3>Nick 尼克｜172/62/25</h3>
-        <p>高反差低音嗓，互動自然，適合喜歡主動風格的客人。</p>
-      </div>
-    </article>
-    <article class="card therapist" data-tags="new gentle">
+
+    <article class="card therapist" data-tags="fit gentle">
       <div class="photo-row">
         <img src="51.webp" alt="台中同志 SPA 師傅 Leo 里歐" width="360" height="480" loading="lazy" decoding="async"><img src="52.webp" alt="H2 Men's Spa 男師 Leo" width="360" height="480" loading="lazy" decoding="async"><img src="53.webp" alt="西屯黝黑男師 Leo" width="360" height="480" loading="lazy" decoding="async"><img src="54.webp" alt="逢甲男士舒壓 Leo" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
         <h3>Leo 里歐｜171/54/25</h3>
         <p>精實腹肌，黝黑裸曬風格，互動自然。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">溫柔互動</span></div>
       </div>
     </article>
-    <article class="card therapist" data-tags="popular gentle">
+
+    <article class="card therapist" data-tags="skill gentle">
       <div class="photo-row">
-        <img src="11.webp" alt="逢甲男士按摩 Ting 廷" width="360" height="480" loading="lazy" decoding="async"><img src="12.webp" alt="H2 Men's Spa 男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="13.webp" alt="台中高顏值男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="14.webp" alt="西屯男士 SPA Ting" width="360" height="480" loading="lazy" decoding="async">
+        <img src="81.webp" alt="西屯男士按摩師 Wesley 衛斯理" width="360" height="480" loading="lazy" decoding="async"><img src="82.webp" alt="H2 Men's Spa 師傅 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="83.webp" alt="台中油壓男師 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="84.webp" alt="台中小隻馬男師 Wesley" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
-        <h3>Ting 廷｜175/67/22</h3>
-        <p>低調大學生、高顏值，清新質感鮮肉系。</p>
+        <h3>Wesley 衛斯理｜164/56/28</h3>
+        <p>小隻馬身形，專業油壓手法，配合度高。</p>
+        <div class="tag-row"><span class="tag">按摩技術派</span><span class="tag">溫柔互動</span></div>
       </div>
     </article>
-    <article class="card therapist" data-tags="popular sport">
+
+    <article class="card therapist" data-tags="muscle skill">
       <div class="photo-row">
         <img src="91.webp" alt="台中肉壯男師 Poter 波特" width="360" height="480" loading="lazy" decoding="async"><img src="92.webp" alt="H2 Men's Spa 熟男師傅 Poter" width="360" height="480" loading="lazy" decoding="async"><img src="93.webp" alt="西屯肉壯男士按摩 Poter" width="360" height="480" loading="lazy" decoding="async"><img src="94.webp" alt="台中爸爸感男師 Poter" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
         <h3>Poter 波特｜176/80/36</h3>
         <p>肉壯爸爸感，另有臉部鬆筋服務。</p>
+        <div class="tag-row"><span class="tag">肉壯厚實</span><span class="tag">按摩技術派</span></div>
       </div>
     </article>
-    <article class="card therapist" data-tags="new gentle">
+
+    <article class="card therapist" data-tags="fit gentle">
+      <div class="photo-row">
+        <img src="101.webp" alt="台中男師按摩 Nick 尼克" width="360" height="480" loading="lazy" decoding="async"><img src="102.webp" alt="H2 Men's Spa 男師 Nick" width="360" height="480" loading="lazy" decoding="async"><img src="103.webp" alt="西屯男士 SPA Nick" width="360" height="480" loading="lazy" decoding="async"><img src="104.webp" alt="逢甲附近男師 Nick" width="360" height="480" loading="lazy" decoding="async">
+      </div>
+      <div class="info">
+        <h3>Nick 尼克｜172/62/25</h3>
+        <p>高反差低音嗓，互動自然，適合喜歡主動風格的客人。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">溫柔互動</span></div>
+      </div>
+    </article>
+
+    <article class="card therapist" data-tags="gentle fit">
+      <div class="photo-row">
+        <img src="11.webp" alt="逢甲男士按摩 Ting 廷" width="360" height="480" loading="lazy" decoding="async"><img src="12.webp" alt="H2 Men's Spa 男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="13.webp" alt="台中高顏值男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="14.webp" alt="西屯男士 SPA Ting" width="360" height="480" loading="lazy" decoding="async">
+      </div>
+      <div class="info">
+        <h3>Ting 廷｜175/67/22</h3>
+        <p>低調大學生、高顏值，清新質感鮮肉系。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">溫柔互動</span></div>
+      </div>
+    </article>
+
+    <article class="card therapist" data-tags="gentle fit">
+      <div class="photo-row">
+        <img src="141.webp" alt="台中小隻馬男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async"><img src="142.webp" alt="H2 Men's Spa 單眼皮男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async"><img src="143.webp" alt="西屯男士按摩師 Ryan" width="360" height="480" loading="lazy" decoding="async"><img src="144.webp" alt="逢甲附近好相處男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async">
+      </div>
+      <div class="info">
+        <h3>Ryan 瑞恩｜166/60/26</h3>
+        <p>小隻馬身形，單眼皮厚唇，五官立體，好相處。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">溫柔互動</span></div>
+      </div>
+    </article>
+
+    <article class="card therapist" data-tags="gentle fit">
       <div class="photo-row">
         <img src="21.webp" alt="台中白皙男師 Jimmy 吉米" width="360" height="480" loading="lazy" decoding="async"><img src="22.webp" alt="H2 Men's Spa 男師 Jimmy" width="360" height="480" loading="lazy" decoding="async"><img src="23.webp" alt="西屯小隻馬男師 Jimmy" width="360" height="480" loading="lazy" decoding="async"><img src="24.webp" alt="逢甲男士舒壓 Jimmy" width="360" height="480" loading="lazy" decoding="async">
       </div>
       <div class="info">
         <h3>Jimmy 吉米｜168/57/23</h3>
         <p>白皙乾淨、小隻馬、好配合。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">溫柔互動</span></div>
       </div>
     </article>
-  </div>
+
+    <article class="card therapist" data-tags="gentle fit">
+      <div class="photo-row">
+        <img src="121.webp" alt="台中白淨學生型男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async"><img src="122.webp" alt="H2 Men's Spa 小奶狗男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async"><img src="123.webp" alt="西屯男士舒壓師傅 EF" width="360" height="480" loading="lazy" decoding="async"><img src="124.webp" alt="逢甲附近白淨男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async">
+      </div>
+      <div class="info">
+        <h3>EF 伊夫｜172/58/19</h3>
+        <p>白淨學生型，皮膚好，小奶狗氣質，好配合。</p>
+        <div class="tag-row"><span class="tag">精實型男</span><span class="tag">溫柔互動</span></div>
+      </div>
+    </article>
+
+    <article class="card therapist" data-tags="muscle skill">
+      <div class="photo-row">
+        <img src="111.webp" alt="台中肉壯學生男師 Fang 方" width="360" height="480" loading="lazy" decoding="async"><img src="112.webp" alt="H2 Men's Spa 專業按摩師 Fang 方" width="360" height="480" loading="lazy" decoding="async"><img src="113.webp" alt="西屯傳統整復證照男師 Fang" width="360" height="480" loading="lazy" decoding="async"><img src="114.webp" alt="逢甲附近大尺碼男師 Fang 方" width="360" height="480" loading="lazy" decoding="async">
+      </div>
+      <div class="info">
+        <h3>Fang 方｜177/77/19</h3>
+        <p>肉壯學生，大尺碼體格，專業按摩，具傳統整復證照。</p>
+        <div class="tag-row"><span class="tag">肉壯厚實</span><span class="tag">按摩技術派</span></div>
+      </div>
+    </article></div>
 </section>
 
 <section class="section" id="booking">
@@ -936,6 +1017,25 @@ footer{
     </div>
   </div>
 
+</section>
+
+<section class="section" id="about">
+  <div class="intro-grid">
+    <div class="card content-card">
+      <h2>台中西屯逢甲附近的男士舒壓預約空間</h2>
+      <p>H2 Men's Spa 是位於台中市西屯區福上巷的男士按摩與舒壓空間，鄰近逢甲商圈。服務採預約制，適合想找台中男士按摩、同志友善舒壓、運動後放鬆或私人 SPA 體驗的客人。</p>
+      <p>我們重視預約前資訊清楚、到店後流程單純，以及整體空間的隱私與舒適感。第一次預約可先透過 LINE 詢問方案、師傅、時段與交通資訊。</p>
+    </div>
+    <div class="card content-card">
+      <h3>服務重點</h3>
+      <div class="key-list">
+        <div class="key-item"><strong>預約制</strong>先確認時段與師傅，減少等待。</div>
+        <div class="key-item"><strong>西屯逢甲</strong>近商圈，交通與停車便利。</div>
+        <div class="key-item"><strong>男士舒壓</strong>適合久坐、健身與壓力放鬆。</div>
+        <div class="key-item"><strong>隱私感</strong>重視單純、舒適的放鬆體驗。</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="environment">
