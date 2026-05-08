@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.h2menspa.com/sitemap.xml
+Sitemap: https://www.h2menspa.com/image-sitemap.xml
