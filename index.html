@@ -413,6 +413,7 @@ img{max-width:100%;height:auto}
   gap:12px;
   margin-bottom:38px;
 }
+
 .filter-btn{
   cursor:pointer;
   color:#dff7ff;
@@ -420,25 +421,33 @@ img{max-width:100%;height:auto}
   border:1px solid rgba(0,217,255,.10);
   padding:12px 18px;
   border-radius:999px;
-  transition:.28s ease;
   font-size:14px;
   font-weight:700;
   letter-spacing:.5px;
   backdrop-filter:blur(10px);
   min-width:110px;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+  animation:none !important;
 }
+
 .filter-btn:hover{
-  border-color:rgba(0,255,157,.22);
-  color:#dff7ff;
-  transform:none;
-  box-shadow:none;
+  background:rgba(255,255,255,.06);
+  border-color:rgba(0,255,157,.18);
+  color:#ffffff;
+  transform:none !important;
+  box-shadow:none !important;
+  animation:none !important;
 }
+
 .filter-btn.active{
-  background:rgba(255,255,255,.08);
+  background:rgba(0,255,157,.10);
   color:#9effdc;
-  border:1px solid rgba(0,255,157,.22);
-  box-shadow:none;
+  border:1px solid rgba(0,255,157,.28);
+  box-shadow:none !important;
+  transform:none !important;
+  animation:none !important;
 }
+
 .therapist{padding:22px;margin-bottom:28px}
 .therapist.hidden{display:none}
 .photo-row{
@@ -634,7 +643,7 @@ footer{
 .line-float img{width:26px;height:26px}
 
 .line-float{
-  animation:linePulse 2.2s infinite;
+  
   overflow:visible;
 }
 .line-float::before,
@@ -706,6 +715,11 @@ footer{
   .line-float img{width:30px;height:30px}
 }
 </style>
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
 </head>
 
 <body>
@@ -775,7 +789,7 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="muscle skill">
+    <article class="card therapist" data-tags="fit gentle">
       <div class="photo-row">
         <img src="71.webp" alt="台中西屯男士按摩師 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="72.webp" alt="H2 Men's Spa 師傅 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="73.webp" alt="台中運動型男師 Ronnie" width="360" height="480" loading="lazy" decoding="async"><img src="74.webp" alt="逢甲附近男士 SPA Ronnie" width="360" height="480" loading="lazy" decoding="async">
       </div>
