@@ -680,6 +680,132 @@ footer{
   .flow-container{grid-template-columns:1fr}
   .features-grid,.seo-links-grid{grid-template-columns:1fr}
 }
+/* ===== Detail Panel ===== */
+
+.detail-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(8px);
+  z-index:9998;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s;
+}
+
+.detail-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.detail-panel{
+  position:fixed;
+  left:50%;
+  bottom:-100%;
+  transform:translateX(-50%);
+  width:min(980px,100%);
+  max-height:92vh;
+  overflow-y:auto;
+  background:#081018;
+  border-radius:30px 30px 0 0;
+  padding:28px;
+  z-index:9999;
+  transition:.45s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 -20px 60px rgba(0,0,0,.5);
+}
+
+.detail-panel.active{
+  bottom:0;
+}
+
+.detail-close{
+  position:absolute;
+  right:18px;
+  top:18px;
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.detail-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:30px;
+}
+
+.detail-main-image{
+  width:100%;
+  border-radius:24px;
+}
+
+.detail-thumbs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:14px;
+}
+
+.detail-thumbs img{
+  width:100%;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+.detail-name{
+  font-size:36px;
+  font-weight:900;
+  color:#fff;
+}
+
+.detail-meta{
+  color:#9effdc;
+  margin-top:10px;
+}
+
+.detail-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:22px 0;
+}
+
+.detail-tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(0,255,157,.18);
+  color:#dffcf3;
+  font-size:13px;
+}
+
+.detail-desc{
+  color:#c8d7df;
+  line-height:1.9;
+}
+
+.detail-line-btn{
+  display:inline-flex;
+  margin-top:28px;
+  padding:16px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#00d48a,#00f0c0);
+  color:#00140e;
+  font-weight:900;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+
+  .detail-grid{
+    grid-template-columns:1fr;
+  }
+
+}
 @media(max-width:768px){
   .nav-links{
     display:flex;
@@ -780,7 +906,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="muscle gentle">
+<article class="card therapist"
+         data-tags="muscle gentle"
+         onclick="openTherapist('gary')">
       <div class="photo-row">
         <img src="41.webp" alt="台中西屯男士按摩師 Gary 蓋瑞" width="360" height="480" loading="eager" decoding="async" fetchpriority="high"><img src="42.webp" alt="H2 Men's Spa 暖男師傅 Gary 蓋瑞" width="360" height="480" loading="lazy" decoding="async"><img src="43.webp" alt="逢甲附近男士舒壓師傅 Gary" width="360" height="480" loading="lazy" decoding="async"><img src="44.webp" alt="台中單眼皮男師 Gary 蓋瑞" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -791,7 +919,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="fit gentle">
+<article class="card therapist"
+         data-tags="muscle skill gentle"
+         onclick="openTherapist('ronnie')">
       <div class="photo-row">
         <img src="71.webp" alt="台中西屯男士按摩師 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="72.webp" alt="H2 Men's Spa 師傅 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="73.webp" alt="台中運動型男師 Ronnie" width="360" height="480" loading="lazy" decoding="async"><img src="74.webp" alt="逢甲附近男士 SPA Ronnie" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -806,7 +936,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="gentle fit">
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('henry')">
       <div class="photo-row">
         <img src="61.webp" alt="台中同志按摩師 Henry 亨利" width="360" height="480" loading="lazy" decoding="async"><img src="62.webp" alt="H2 Men's Spa 男師 Henry" width="360" height="480" loading="lazy" decoding="async"><img src="63.webp" alt="西屯白皙男師 Henry" width="360" height="480" loading="lazy" decoding="async"><img src="64.webp" alt="逢甲男士舒壓 Henry" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -817,7 +949,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="muscle skill">
+<article class="card therapist"
+         data-tags="muscle skill"
+         onclick="openTherapist('ted')">
       <div class="photo-row">
         <img src="151.webp" alt="台中運動按摩男師 Ted 泰德" width="360" height="480" loading="lazy" decoding="async"><img src="152.webp" alt="H2 Men's Spa 健身男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="153.webp" alt="西屯健身教練男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="154.webp" alt="台中男士運動舒壓 Ted" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -828,7 +962,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="fit gentle">
+<article class="card therapist"
+         data-tags="fit gentle"
+         onclick="openTherapist('leo')">
       <div class="photo-row">
         <img src="51.webp" alt="台中同志 SPA 師傅 Leo 里歐" width="360" height="480" loading="lazy" decoding="async"><img src="52.webp" alt="H2 Men's Spa 男師 Leo" width="360" height="480" loading="lazy" decoding="async"><img src="53.webp" alt="西屯黝黑男師 Leo" width="360" height="480" loading="lazy" decoding="async"><img src="54.webp" alt="逢甲男士舒壓 Leo" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -839,7 +975,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="skill gentle">
+<article class="card therapist"
+         data-tags="skill gentle"
+         onclick="openTherapist('wesley')">
       <div class="photo-row">
         <img src="81.webp" alt="西屯男士按摩師 Wesley 衛斯理" width="360" height="480" loading="lazy" decoding="async"><img src="82.webp" alt="H2 Men's Spa 師傅 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="83.webp" alt="台中油壓男師 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="84.webp" alt="台中小隻馬男師 Wesley" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -850,7 +988,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="muscle skill">
+<article class="card therapist"
+         data-tags="muscle skill"
+         onclick="openTherapist('poter')">
       <div class="photo-row">
         <img src="91.webp" alt="台中肉壯男師 Poter 波特" width="360" height="480" loading="lazy" decoding="async"><img src="92.webp" alt="H2 Men's Spa 熟男師傅 Poter" width="360" height="480" loading="lazy" decoding="async"><img src="93.webp" alt="西屯肉壯男士按摩 Poter" width="360" height="480" loading="lazy" decoding="async"><img src="94.webp" alt="台中爸爸感男師 Poter" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -861,7 +1001,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="fit gentle">
+<article class="card therapist"
+         data-tags="fit gentle"
+         onclick="openTherapist('nick')">
       <div class="photo-row">
         <img src="101.webp" alt="台中男師按摩 Nick 尼克" width="360" height="480" loading="lazy" decoding="async"><img src="102.webp" alt="H2 Men's Spa 男師 Nick" width="360" height="480" loading="lazy" decoding="async"><img src="103.webp" alt="西屯男士 SPA Nick" width="360" height="480" loading="lazy" decoding="async"><img src="104.webp" alt="逢甲附近男師 Nick" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -872,7 +1014,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="gentle fit">
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('ting')">
       <div class="photo-row">
         <img src="11.webp" alt="逢甲男士按摩 Ting 廷" width="360" height="480" loading="lazy" decoding="async"><img src="12.webp" alt="H2 Men's Spa 男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="13.webp" alt="台中高顏值男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="14.webp" alt="西屯男士 SPA Ting" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -883,7 +1027,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="gentle fit">
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('ryan')">
       <div class="photo-row">
         <img src="141.webp" alt="台中小隻馬男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async"><img src="142.webp" alt="H2 Men's Spa 單眼皮男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async"><img src="143.webp" alt="西屯男士按摩師 Ryan" width="360" height="480" loading="lazy" decoding="async"><img src="144.webp" alt="逢甲附近好相處男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -894,7 +1040,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="gentle fit">
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('jimmy')">
       <div class="photo-row">
         <img src="21.webp" alt="台中白皙男師 Jimmy 吉米" width="360" height="480" loading="lazy" decoding="async"><img src="22.webp" alt="H2 Men's Spa 男師 Jimmy" width="360" height="480" loading="lazy" decoding="async"><img src="23.webp" alt="西屯小隻馬男師 Jimmy" width="360" height="480" loading="lazy" decoding="async"><img src="24.webp" alt="逢甲男士舒壓 Jimmy" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -905,7 +1053,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="gentle fit">
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('ef')">
       <div class="photo-row">
         <img src="121.webp" alt="台中白淨學生型男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async"><img src="122.webp" alt="H2 Men's Spa 小奶狗男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async"><img src="123.webp" alt="西屯男士舒壓師傅 EF" width="360" height="480" loading="lazy" decoding="async"><img src="124.webp" alt="逢甲附近白淨男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -916,7 +1066,9 @@ footer{
       </div>
     </article>
 
-    <article class="card therapist" data-tags="muscle skill">
+<article class="card therapist"
+         data-tags="muscle skill"
+         onclick="openTherapist('fang')">
       <div class="photo-row">
         <img src="111.webp" alt="台中肉壯學生男師 Fang 方" width="360" height="480" loading="lazy" decoding="async"><img src="112.webp" alt="H2 Men's Spa 專業按摩師 Fang 方" width="360" height="480" loading="lazy" decoding="async"><img src="113.webp" alt="西屯傳統整復證照男師 Fang" width="360" height="480" loading="lazy" decoding="async"><img src="114.webp" alt="逢甲附近大尺碼男師 Fang 方" width="360" height="480" loading="lazy" decoding="async">
       </div>
@@ -1246,26 +1398,461 @@ footer{
   <span>詢問空位</span>
 </a>
 
+# index.html 直接修改版（Detail Panel 已套用）
+
+## 1. 所有師傅 article 直接改成以下格式
+
+### Cade
+
+```html
+<article class="card therapist"
+         data-tags="muscle skill gentle"
+         onclick="openTherapist('cade')">
+```
+
+### Gary
+
+```html
+<article class="card therapist"
+         data-tags="muscle gentle"
+         onclick="openTherapist('gary')">
+```
+
+### Ronnie
+
+```html
+<article class="card therapist"
+         data-tags="fit gentle"
+         onclick="openTherapist('ronnie')">
+```
+
+### Henry
+
+```html
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('henry')">
+```
+
+### Ted
+
+```html
+<article class="card therapist"
+         data-tags="muscle skill"
+         onclick="openTherapist('ted')">
+```
+
+### Leo
+
+```html
+<article class="card therapist"
+         data-tags="fit gentle"
+         onclick="openTherapist('leo')">
+```
+
+### Wesley
+
+```html
+<article class="card therapist"
+         data-tags="skill gentle"
+         onclick="openTherapist('wesley')">
+```
+
+### Poter
+
+```html
+<article class="card therapist"
+         data-tags="muscle skill"
+         onclick="openTherapist('poter')">
+```
+
+### Nick
+
+```html
+<article class="card therapist"
+         data-tags="fit gentle"
+         onclick="openTherapist('nick')">
+```
+
+### Ting
+
+```html
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('ting')">
+```
+
+### Ryan
+
+```html
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('ryan')">
+```
+
+### Jimmy
+
+```html
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('jimmy')">
+```
+
+### EF
+
+```html
+<article class="card therapist"
+         data-tags="gentle fit"
+         onclick="openTherapist('ef')">
+```
+
+### Fang
+
+```html
+<article class="card therapist"
+         data-tags="muscle skill"
+         onclick="openTherapist('fang')">
+```
+
+---
+
+## 2. CSS 新增
+
+放在：
+
+```css
+@media(max-width:900px){
+```
+
+前面。
+
+```css
+/* ===== Detail Panel ===== */
+
+.detail-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(8px);
+  z-index:9998;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s;
+}
+
+.detail-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.detail-panel{
+  position:fixed;
+  left:50%;
+  bottom:-100%;
+  transform:translateX(-50%);
+  width:min(980px,100%);
+  max-height:92vh;
+  overflow-y:auto;
+  background:#081018;
+  border-radius:30px 30px 0 0;
+  padding:28px;
+  z-index:9999;
+  transition:.45s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 -20px 60px rgba(0,0,0,.5);
+}
+
+.detail-panel.active{
+  bottom:0;
+}
+
+.detail-close{
+  position:absolute;
+  right:18px;
+  top:18px;
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.detail-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:30px;
+}
+
+.detail-main-image{
+  width:100%;
+  border-radius:24px;
+}
+
+.detail-thumbs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:14px;
+}
+
+.detail-thumbs img{
+  width:100%;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+.detail-name{
+  font-size:36px;
+  font-weight:900;
+  color:#fff;
+}
+
+.detail-meta{
+  color:#9effdc;
+  margin-top:10px;
+}
+
+.detail-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:22px 0;
+}
+
+.detail-tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(0,255,157,.18);
+  color:#dffcf3;
+  font-size:13px;
+}
+
+.detail-desc{
+  color:#c8d7df;
+  line-height:1.9;
+}
+
+.detail-line-btn{
+  display:inline-flex;
+  margin-top:28px;
+  padding:16px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#00d48a,#00f0c0);
+  color:#00140e;
+  font-weight:900;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+
+  .detail-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+```
+
+---
+
+## 3. 在 </body> 前新增
+
+```html
+<div class="detail-overlay"
+     id="detailOverlay"
+     onclick="closeTherapist()"></div>
+
+<div class="detail-panel" id="detailPanel">
+
+  <button class="detail-close"
+          onclick="closeTherapist()">
+    ✕
+  </button>
+
+  <div id="detailContent"></div>
+
+</div>
+```
+
+---
+
+## 4. 刪除你原本最下面的 filter script
+
+刪除：
+
+```html
 <script>
+const filterButtons = document.querySelectorAll('.filter-btn');
+...
+</script>
+```
+
+---
+
+## 5. 改成以下完整 script
+
+```html
+<script>
+
+const therapistDetails = {
+
+  cade:{
+    name:"Cade 凱德",
+    meta:"162 / 62 / 30",
+    tags:["肉壯厚實","按摩技術派"],
+    desc:"厚實肌肉小隻馬，短髮單眼皮，按摩力道扎實。",
+    images:["31.webp","32.webp","33.webp","34.webp"]
+  },
+
+  gary:{
+    name:"Gary 蓋瑞",
+    meta:"173 / 68 / 30",
+    tags:["肉壯厚實","按摩技術派"],
+    desc:"帥氣單眼皮、粗框眼鏡、大胸肌，暖男憨厚型，按摩力道足。",
+    images:["41.webp","42.webp","43.webp","44.webp"]
+  },
+
+  ronnie:{
+    name:"Ronnie 羅尼",
+    meta:"177 / 69 / 30",
+    tags:["肉壯厚實","按摩技術派","溫柔互動"],
+    desc:"白皙帥氣，服務經驗豐富，互動自然。",
+    images:["71.webp","72.webp","73.webp","74.webp"]
+  }
+
+};
+
+function openTherapist(id){
+
+  const t = therapistDetails[id];
+  if(!t) return;
+
+  document.getElementById("detailContent").innerHTML = `
+    <div class="detail-grid">
+
+      <div>
+
+        <img class="detail-main-image"
+             id="detailMainImage"
+             src="${t.images[0]}">
+
+        <div class="detail-thumbs">
+
+          ${t.images.map(img=>`
+            <img src="${img}"
+                 onclick="changeDetailImage('${img}')">
+          `).join("")}
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="detail-name">${t.name}</div>
+
+        <div class="detail-meta">${t.meta}</div>
+
+        <div class="detail-tags">
+
+          ${t.tags.map(tag=>`
+            <span class="detail-tag">${tag}</span>
+          `).join("")}
+
+        </div>
+
+        <div class="detail-desc">
+          ${t.desc}
+        </div>
+
+        <a class="detail-line-btn"
+           href="https://line.me/R/ti/p/@499bwixl"
+           target="_blank">
+
+           詢問 ${t.name} 可預約時段
+
+        </a>
+
+      </div>
+
+    </div>
+  `;
+
+  document.getElementById("detailOverlay")
+    .classList.add("active");
+
+  document.getElementById("detailPanel")
+    .classList.add("active");
+
+}
+
+function closeTherapist(){
+
+  document.getElementById("detailOverlay")
+    .classList.remove("active");
+
+  document.getElementById("detailPanel")
+    .classList.remove("active");
+
+}
+
+function changeDetailImage(src){
+
+  document.getElementById("detailMainImage")
+    .src = src;
+
+}
+
 const filterButtons = document.querySelectorAll('.filter-btn');
 const therapists = document.querySelectorAll('.therapist');
 
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
-    filterButtons.forEach(btn => btn.classList.remove('active'));
+
+    filterButtons.forEach(btn =>
+      btn.classList.remove('active')
+    );
+
     button.classList.add('active');
+
     const filter = button.dataset.filter;
+
     therapists.forEach(card => {
+
       const tags = card.dataset.tags || '';
-      if (filter === 'all' || tags.split(' ').includes(filter)) {
+
+      if (
+        filter === 'all' ||
+        tags.split(' ').includes(filter)
+      ) {
         card.classList.remove('hidden');
       } else {
         card.classList.add('hidden');
       }
+
     });
+
   });
 });
-</script>
 
+</script>
+```
+
+<div class="detail-overlay"
+     id="detailOverlay"
+     onclick="closeTherapist()"></div>
+
+<div class="detail-panel" id="detailPanel">
+
+  <button class="detail-close"
+          onclick="closeTherapist()">
+    ✕
+  </button>
+
+  <div id="detailContent"></div>
+
+</div>
 </body>
 </html>
