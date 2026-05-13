@@ -448,7 +448,29 @@ img{max-width:100%;height:auto}
   animation:none !important;
 }
 
-.therapist{padding:22px;margin-bottom:28px}
+
+#therapist-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:24px;
+}
+
+.therapist-cover{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#111;
+  transition:.3s ease;
+}
+
+.therapist:hover .therapist-cover{
+  transform:scale(1.015);
+  border-color:rgba(0,255,157,.35);
+}
+
+.therapist{padding:22px;margin-bottom:0;cursor:pointer}
 .therapist.hidden{display:none}
 .photo-row{
   display:grid;
@@ -894,11 +916,9 @@ footer{
 
   <div id="therapist-list">
 <article class="card therapist"
-         data-tags="muscle skill gentle"
+         data-tags="muscle skill"
          onclick="openTherapist('cade')">
-      <div class="photo-row">
-        <img src="31.webp" alt="台中西屯男士按摩師 Cade 凱德" width="360" height="480" loading="eager" decoding="async" fetchpriority="high"><img src="32.webp" alt="H2 Men's Spa 男師 Cade 凱德" width="360" height="480" loading="lazy" decoding="async"><img src="33.webp" alt="逢甲附近男士舒壓師傅 Cade 凱德" width="360" height="480" loading="lazy" decoding="async"><img src="34.webp" alt="台中小隻馬男師 Cade 凱德" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="31.webp" alt="台中西屯男士按摩師 Cade 凱德" width="360" height="480" loading="eager" decoding="async" fetchpriority="high">
       <div class="info">
         <h3>Cade 凱德｜162/62/30</h3>
         <p>厚實肌肉小隻馬，短髮單眼皮，按摩力道扎實。</p>
@@ -907,11 +927,9 @@ footer{
     </article>
 
 <article class="card therapist"
-         data-tags="muscle gentle"
+         data-tags="muscle skill"
          onclick="openTherapist('gary')">
-      <div class="photo-row">
-        <img src="41.webp" alt="台中西屯男士按摩師 Gary 蓋瑞" width="360" height="480" loading="eager" decoding="async" fetchpriority="high"><img src="42.webp" alt="H2 Men's Spa 暖男師傅 Gary 蓋瑞" width="360" height="480" loading="lazy" decoding="async"><img src="43.webp" alt="逢甲附近男士舒壓師傅 Gary" width="360" height="480" loading="lazy" decoding="async"><img src="44.webp" alt="台中單眼皮男師 Gary 蓋瑞" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="41.webp" alt="台中西屯男士按摩師 Gary 蓋瑞" width="360" height="480" loading="eager" decoding="async" fetchpriority="high">
       <div class="info">
         <h3>Gary 蓋瑞｜173/68/30</h3>
         <p>帥氣單眼皮、粗框眼鏡、大胸肌，暖男憨厚型，按摩力道足。</p>
@@ -922,9 +940,7 @@ footer{
 <article class="card therapist"
          data-tags="muscle skill gentle"
          onclick="openTherapist('ronnie')">
-      <div class="photo-row">
-        <img src="71.webp" alt="台中西屯男士按摩師 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="72.webp" alt="H2 Men's Spa 師傅 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async"><img src="73.webp" alt="台中運動型男師 Ronnie" width="360" height="480" loading="lazy" decoding="async"><img src="74.webp" alt="逢甲附近男士 SPA Ronnie" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="71.webp" alt="台中西屯男士按摩師 Ronnie 羅尼" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Ronnie 羅尼｜177/69/30</h3>
         <p>白皙帥氣，服務經驗豐富，互動自然。</p>
@@ -937,11 +953,9 @@ footer{
     </article>
 
 <article class="card therapist"
-         data-tags="gentle fit"
+         data-tags="fit gentle muscle"
          onclick="openTherapist('henry')">
-      <div class="photo-row">
-        <img src="61.webp" alt="台中同志按摩師 Henry 亨利" width="360" height="480" loading="lazy" decoding="async"><img src="62.webp" alt="H2 Men's Spa 男師 Henry" width="360" height="480" loading="lazy" decoding="async"><img src="63.webp" alt="西屯白皙男師 Henry" width="360" height="480" loading="lazy" decoding="async"><img src="64.webp" alt="逢甲男士舒壓 Henry" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="61.webp" alt="台中同志按摩師 Henry 亨利" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Henry 亨利｜176/67/23</h3>
         <p>白皙可愛，鄰家男孩型，小奶狗氣質。</p>
@@ -952,9 +966,7 @@ footer{
 <article class="card therapist"
          data-tags="muscle skill"
          onclick="openTherapist('ted')">
-      <div class="photo-row">
-        <img src="151.webp" alt="台中運動按摩男師 Ted 泰德" width="360" height="480" loading="lazy" decoding="async"><img src="152.webp" alt="H2 Men's Spa 健身男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="153.webp" alt="西屯健身教練男師 Ted" width="360" height="480" loading="lazy" decoding="async"><img src="154.webp" alt="台中男士運動舒壓 Ted" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="151.webp" alt="台中運動按摩男師 Ted 泰德" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Ted 泰德｜168/78/28</h3>
         <p>健身教練背景，擅長運動後放鬆與力道扎實的舒壓。</p>
@@ -965,9 +977,7 @@ footer{
 <article class="card therapist"
          data-tags="fit gentle"
          onclick="openTherapist('leo')">
-      <div class="photo-row">
-        <img src="51.webp" alt="台中同志 SPA 師傅 Leo 里歐" width="360" height="480" loading="lazy" decoding="async"><img src="52.webp" alt="H2 Men's Spa 男師 Leo" width="360" height="480" loading="lazy" decoding="async"><img src="53.webp" alt="西屯黝黑男師 Leo" width="360" height="480" loading="lazy" decoding="async"><img src="54.webp" alt="逢甲男士舒壓 Leo" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="51.webp" alt="台中同志 SPA 師傅 Leo 里歐" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Leo 里歐｜171/54/25</h3>
         <p>精實腹肌，黝黑裸曬風格，互動自然。</p>
@@ -978,9 +988,7 @@ footer{
 <article class="card therapist"
          data-tags="skill gentle"
          onclick="openTherapist('wesley')">
-      <div class="photo-row">
-        <img src="81.webp" alt="西屯男士按摩師 Wesley 衛斯理" width="360" height="480" loading="lazy" decoding="async"><img src="82.webp" alt="H2 Men's Spa 師傅 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="83.webp" alt="台中油壓男師 Wesley" width="360" height="480" loading="lazy" decoding="async"><img src="84.webp" alt="台中小隻馬男師 Wesley" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="81.webp" alt="西屯男士按摩師 Wesley 衛斯理" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Wesley 衛斯理｜164/56/28</h3>
         <p>小隻馬身形，專業油壓手法，配合度高。</p>
@@ -991,9 +999,7 @@ footer{
 <article class="card therapist"
          data-tags="muscle skill"
          onclick="openTherapist('poter')">
-      <div class="photo-row">
-        <img src="91.webp" alt="台中肉壯男師 Poter 波特" width="360" height="480" loading="lazy" decoding="async"><img src="92.webp" alt="H2 Men's Spa 熟男師傅 Poter" width="360" height="480" loading="lazy" decoding="async"><img src="93.webp" alt="西屯肉壯男士按摩 Poter" width="360" height="480" loading="lazy" decoding="async"><img src="94.webp" alt="台中爸爸感男師 Poter" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="91.webp" alt="台中肉壯男師 Poter 波特" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Poter 波特｜176/80/36</h3>
         <p>肉壯爸爸感，另有臉部鬆筋服務。</p>
@@ -1004,9 +1010,7 @@ footer{
 <article class="card therapist"
          data-tags="fit gentle"
          onclick="openTherapist('nick')">
-      <div class="photo-row">
-        <img src="101.webp" alt="台中男師按摩 Nick 尼克" width="360" height="480" loading="lazy" decoding="async"><img src="102.webp" alt="H2 Men's Spa 男師 Nick" width="360" height="480" loading="lazy" decoding="async"><img src="103.webp" alt="西屯男士 SPA Nick" width="360" height="480" loading="lazy" decoding="async"><img src="104.webp" alt="逢甲附近男師 Nick" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="101.webp" alt="台中男師按摩 Nick 尼克" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Nick 尼克｜172/62/25</h3>
         <p>高反差低音嗓，互動自然，適合喜歡主動風格的客人。</p>
@@ -1017,9 +1021,7 @@ footer{
 <article class="card therapist"
          data-tags="gentle fit"
          onclick="openTherapist('ting')">
-      <div class="photo-row">
-        <img src="11.webp" alt="逢甲男士按摩 Ting 廷" width="360" height="480" loading="lazy" decoding="async"><img src="12.webp" alt="H2 Men's Spa 男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="13.webp" alt="台中高顏值男師 Ting" width="360" height="480" loading="lazy" decoding="async"><img src="14.webp" alt="西屯男士 SPA Ting" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="11.webp" alt="逢甲男士按摩 Ting 廷" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Ting 廷｜175/67/22</h3>
         <p>低調大學生、高顏值，清新質感鮮肉系。</p>
@@ -1030,9 +1032,7 @@ footer{
 <article class="card therapist"
          data-tags="gentle fit"
          onclick="openTherapist('ryan')">
-      <div class="photo-row">
-        <img src="141.webp" alt="台中小隻馬男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async"><img src="142.webp" alt="H2 Men's Spa 單眼皮男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async"><img src="143.webp" alt="西屯男士按摩師 Ryan" width="360" height="480" loading="lazy" decoding="async"><img src="144.webp" alt="逢甲附近好相處男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="141.webp" alt="台中小隻馬男師 Ryan 瑞恩" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Ryan 瑞恩｜166/60/26</h3>
         <p>小隻馬身形，單眼皮厚唇，五官立體，好相處。</p>
@@ -1043,9 +1043,7 @@ footer{
 <article class="card therapist"
          data-tags="gentle fit"
          onclick="openTherapist('jimmy')">
-      <div class="photo-row">
-        <img src="21.webp" alt="台中白皙男師 Jimmy 吉米" width="360" height="480" loading="lazy" decoding="async"><img src="22.webp" alt="H2 Men's Spa 男師 Jimmy" width="360" height="480" loading="lazy" decoding="async"><img src="23.webp" alt="西屯小隻馬男師 Jimmy" width="360" height="480" loading="lazy" decoding="async"><img src="24.webp" alt="逢甲男士舒壓 Jimmy" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="21.webp" alt="台中白皙男師 Jimmy 吉米" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Jimmy 吉米｜168/57/23</h3>
         <p>白皙乾淨、小隻馬、好配合。</p>
@@ -1056,9 +1054,7 @@ footer{
 <article class="card therapist"
          data-tags="gentle fit"
          onclick="openTherapist('ef')">
-      <div class="photo-row">
-        <img src="121.webp" alt="台中白淨學生型男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async"><img src="122.webp" alt="H2 Men's Spa 小奶狗男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async"><img src="123.webp" alt="西屯男士舒壓師傅 EF" width="360" height="480" loading="lazy" decoding="async"><img src="124.webp" alt="逢甲附近白淨男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="121.webp" alt="台中白淨學生型男師 EF 伊夫" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>EF 伊夫｜172/58/19</h3>
         <p>白淨學生型，皮膚好，小奶狗氣質，好配合。</p>
@@ -1069,9 +1065,7 @@ footer{
 <article class="card therapist"
          data-tags="muscle skill"
          onclick="openTherapist('fang')">
-      <div class="photo-row">
-        <img src="111.webp" alt="台中肉壯學生男師 Fang 方" width="360" height="480" loading="lazy" decoding="async"><img src="112.webp" alt="H2 Men's Spa 專業按摩師 Fang 方" width="360" height="480" loading="lazy" decoding="async"><img src="113.webp" alt="西屯傳統整復證照男師 Fang" width="360" height="480" loading="lazy" decoding="async"><img src="114.webp" alt="逢甲附近大尺碼男師 Fang 方" width="360" height="480" loading="lazy" decoding="async">
-      </div>
+      <img class="therapist-cover" src="111.webp" alt="台中肉壯學生男師 Fang 方" width="360" height="480" loading="lazy" decoding="async">
       <div class="info">
         <h3>Fang 方｜177/77/19</h3>
         <p>肉壯學生，大尺碼體格，專業按摩，具傳統整復證照。</p>
@@ -1413,9 +1407,7 @@ footer{
 
 </div>
   <script>
-
 const therapistDetails = {
-
   cade:{
     name:"Cade 凱德",
     meta:"162 / 62 / 30",
@@ -1423,7 +1415,6 @@ const therapistDetails = {
     desc:"厚實肌肉小隻馬，短髮單眼皮，按摩力道扎實。",
     images:["31.webp","32.webp","33.webp","34.webp"]
   },
-
   gary:{
     name:"Gary 蓋瑞",
     meta:"173 / 68 / 30",
@@ -1431,7 +1422,6 @@ const therapistDetails = {
     desc:"帥氣單眼皮、粗框眼鏡、大胸肌，暖男憨厚型，按摩力道足。",
     images:["41.webp","42.webp","43.webp","44.webp"]
   },
-
   ronnie:{
     name:"Ronnie 羅尼",
     meta:"177 / 69 / 30",
@@ -1439,7 +1429,6 @@ const therapistDetails = {
     desc:"白皙帥氣，服務經驗豐富，互動自然。",
     images:["71.webp","72.webp","73.webp","74.webp"]
   },
-
   henry:{
     name:"Henry 亨利",
     meta:"176 / 67 / 23",
@@ -1447,7 +1436,6 @@ const therapistDetails = {
     desc:"白皙可愛，鄰家男孩型，小奶狗氣質。",
     images:["61.webp","62.webp","63.webp","64.webp"]
   },
-
   ted:{
     name:"Ted 泰德",
     meta:"168 / 78 / 28",
@@ -1455,7 +1443,6 @@ const therapistDetails = {
     desc:"健身教練背景，擅長運動後放鬆與力道扎實的舒壓。",
     images:["151.webp","152.webp","153.webp","154.webp"]
   },
-
   leo:{
     name:"Leo 里歐",
     meta:"171 / 54 / 25",
@@ -1463,7 +1450,6 @@ const therapistDetails = {
     desc:"精實腹肌，黝黑裸曬風格，互動自然。",
     images:["51.webp","52.webp","53.webp","54.webp"]
   },
-
   wesley:{
     name:"Wesley 衛斯理",
     meta:"164 / 56 / 28",
@@ -1471,7 +1457,6 @@ const therapistDetails = {
     desc:"小隻馬身形，專業油壓手法，配合度高。",
     images:["81.webp","82.webp","83.webp","84.webp"]
   },
-
   poter:{
     name:"Poter 波特",
     meta:"176 / 80 / 36",
@@ -1479,7 +1464,6 @@ const therapistDetails = {
     desc:"肉壯爸爸感，另有臉部鬆筋服務。",
     images:["91.webp","92.webp","93.webp","94.webp"]
   },
-
   nick:{
     name:"Nick 尼克",
     meta:"172 / 62 / 25",
@@ -1487,7 +1471,6 @@ const therapistDetails = {
     desc:"高反差低音嗓，互動自然，適合喜歡主動風格的客人。",
     images:["101.webp","102.webp","103.webp","104.webp"]
   },
-
   ting:{
     name:"Ting 廷",
     meta:"175 / 67 / 22",
@@ -1495,7 +1478,6 @@ const therapistDetails = {
     desc:"低調大學生、高顏值，清新質感鮮肉系。",
     images:["11.webp","12.webp","13.webp","14.webp"]
   },
-
   ryan:{
     name:"Ryan 瑞恩",
     meta:"166 / 60 / 26",
@@ -1503,7 +1485,6 @@ const therapistDetails = {
     desc:"小隻馬身形，單眼皮厚唇，五官立體，好相處。",
     images:["141.webp","142.webp","143.webp","144.webp"]
   },
-
   jimmy:{
     name:"Jimmy 吉米",
     meta:"168 / 57 / 23",
@@ -1511,7 +1492,6 @@ const therapistDetails = {
     desc:"白皙乾淨、小隻馬、好配合。",
     images:["21.webp","22.webp","23.webp","24.webp"]
   },
-
   ef:{
     name:"EF 伊夫",
     meta:"172 / 58 / 19",
@@ -1519,7 +1499,6 @@ const therapistDetails = {
     desc:"白淨學生型，皮膚好，小奶狗氣質，好配合。",
     images:["121.webp","122.webp","123.webp","124.webp"]
   },
-
   fang:{
     name:"Fang 方",
     meta:"177 / 77 / 19",
@@ -1527,82 +1506,89 @@ const therapistDetails = {
     desc:"肉壯學生，大尺碼體格，專業按摩，具傳統整復證照。",
     images:["111.webp","112.webp","113.webp","114.webp"]
   }
-
 };
 
 function openTherapist(id){
-
   const t = therapistDetails[id];
   if(!t) return;
 
   document.getElementById("detailContent").innerHTML = `
     <div class="detail-grid">
-
       <div>
-
         <img class="detail-main-image"
              id="detailMainImage"
-             src="${t.images[0]}">
+             src="${t.images[0]}"
+             alt="${t.name} H2 Men's Spa 台中男士按摩師傅">
 
         <div class="detail-thumbs">
-
           ${t.images.map(img=>`
             <img src="${img}"
-                 onclick="changeDetailImage('${img}')">
+                 alt="${t.name} 師傅照片"
+                 onclick="event.stopPropagation();changeDetailImage('${img}')">
           `).join("")}
-
         </div>
-
       </div>
 
       <div>
-
         <div class="detail-name">${t.name}</div>
-
         <div class="detail-meta">${t.meta}</div>
 
         <div class="detail-tags">
-
           ${t.tags.map(tag=>`
             <span class="detail-tag">${tag}</span>
           `).join("")}
-
         </div>
 
-        <div class="detail-desc">
-          ${t.desc}
-        </div>
+        <div class="detail-desc">${t.desc}</div>
 
+        <a class="detail-line-btn"
+           href="https://line.me/R/ti/p/@499bwixl"
+           target="_blank"
+           rel="noopener"
+           onclick="event.stopPropagation();">
+          詢問 ${t.name} 可預約時段
+        </a>
       </div>
-
     </div>
   `;
 
-  document.getElementById("detailOverlay")
-    .classList.add("active");
-
-  document.getElementById("detailPanel")
-    .classList.add("active");
-
+  document.getElementById("detailOverlay").classList.add("active");
+  document.getElementById("detailPanel").classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 function closeTherapist(){
-
-  document.getElementById("detailOverlay")
-    .classList.remove("active");
-
-  document.getElementById("detailPanel")
-    .classList.remove("active");
-
+  document.getElementById("detailOverlay").classList.remove("active");
+  document.getElementById("detailPanel").classList.remove("active");
+  document.body.style.overflow = "";
 }
 
 function changeDetailImage(src){
-
-  document.getElementById("detailMainImage")
-    .src = src;
-
+  document.getElementById("detailMainImage").src = src;
 }
 
+const filterButtons = document.querySelectorAll('.filter-btn');
+const therapists = document.querySelectorAll('.therapist');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.filter;
+    therapists.forEach(card => {
+      const tags = card.dataset.tags || '';
+      if (filter === 'all' || tags.split(' ').includes(filter)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+window.addEventListener('keydown', (event) => {
+  if(event.key === 'Escape') closeTherapist();
+});
 </script>
 </body>
 </html>
